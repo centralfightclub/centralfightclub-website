@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Fight Club Hamburg - Galerie & Preise</title>
+    <meta name="description" content="Aktuelle Galerie und Preise des Central Fight Club Hamburg. Professionelles Kampfsport-Training in Hamburg.">
+    <meta name="keywords" content="Central Fight Club, Hamburg, Kampfsport, Galerie, Preise, Training">
+    <meta name="author" content="Central Fight Club Hamburg">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.centralfightclub.de/public/">
+    <meta property="og:title" content="Central Fight Club Hamburg - Galerie & Preise">
+    <meta property="og:description" content="Aktuelle Galerie und Preise des Central Fight Club Hamburg.">
+    <meta property="og:image" content="https://www.centralfightclub.de/s/misc/logo.jpg?t=1749434819">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.centralfightclub.de/public/">
+    <meta property="twitter:title" content="Central Fight Club Hamburg - Galerie & Preise">
+    <meta property="twitter:description" content="Aktuelle Galerie und Preise des Central Fight Club Hamburg.">
+    <meta property="twitter:image" content="https://www.centralfightclub.de/s/misc/logo.jpg?t=1749434819">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/modern-style.css">
+    
+    <style>
+        .gallery-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+        
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        
+        .gallery-header p {
+            font-size: 18px;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .gallery-item-info h3 {
+            color: #dc2626;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .gallery-item-info p {
+            color: #cccccc;
+            font-size: 14px;
+        }
+        
+        .prices-section {
+            padding: 80px 0;
+            background: #1a1a1a;
+        }
+        
+        .prices-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .prices-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 20px;
+        }
+        
+        .prices-header p {
+            font-size: 18px;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .prices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .price-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-5px);
+            border-color: #dc2626;
+            background: rgba(220, 38, 38, 0.1);
+        }
+        
+        .price-card h3 {
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .price-card .price {
+            color: #dc2626;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .price-card p {
+            color: #cccccc;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #cccccc;
+        }
+        
+        .empty-state i {
+            font-size: 64px;
+            color: #dc2626;
+            margin-bottom: 20px;
+        }
+        
+        .empty-state h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .empty-state p {
+            font-size: 16px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: #cccccc;
+        }
+        
+        .loading i {
+            font-size: 48px;
+            color: #dc2626;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #ff6b6b;
+            margin: 20px 0;
+        }
+        
+        .retry-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .retry-btn:hover {
+            background: #b91c1c;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-header h1 {
+                font-size: 36px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .prices-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html" class="logo">
+                        <img src="img/Navbar-Logo.png" alt="Central Fight Club Hamburg" class="logo-img">
+                    </a>
+                </div>
+                
+                <div class="navbar-menu" id="navbar-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ueber-uns.html" class="nav-link">Über uns</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trainingsplan.html" class="nav-link">Trainingsplan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trainer.html" class="nav-link">Trainer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="galerie.html" class="nav-link">Galerie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="preise.html" class="nav-link">Preise</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#kontakt" class="nav-link">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="navbar-toggle" id="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-header">
+                <h1>Unsere Galerie</h1>
+                <p>Einblicke in unser Training und die Central Fight Club Community</p>
+            </div>
+            
+            <div id="gallery-container">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i>
+                    <p>Lade Galerie...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices Section -->
+    <section class="prices-section">
+        <div class="container">
+            <div class="prices-header">
+                <h2>Unsere Preise</h2>
+                <p>Aktuelle Preise und Mitgliedsbeiträge</p>
+            </div>
+            
+            <div id="prices-container">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i>
+                    <p>Lade Preise...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="kontakt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kontakt</h2>
+                <p class="section-subtitle">Besuchen Sie uns in Hamburg</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Adresse</h3>
+                            <p>Droopweg 25<br>20537 Hamburg</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-Mail</h3>
+                            <p><a href="mailto:cfchamburg@outlook.com">cfchamburg@outlook.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Öffnungszeiten</h3>
+                            <p>Mo-Fr: 10:00 - 22:00 Uhr<br>Sa: 12:00 - 15:00 Uhr<br>So: 13:00 - 15:00 Uhr</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-social">
+                    <h3>Folgen Sie uns</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100063717544085" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://instagram.com/central_fight_club_hh?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Central Fight Club Hamburg</h3>
+                    <p>Professionelles Kampfsport-Training in Hamburg</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="trainingsplan.html">Trainingsplan</a></li>
+                        <li><a href="trainer.html">Trainer</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="preise.html">Preise</a></li>
+                        <li><a href="ueber-uns.html">Über uns</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Droopweg 25<br>20537 Hamburg</p>
+                    <p>E-Mail: <a href="mailto:cfchamburg@outlook.com">cfchamburg@outlook.com</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Central Fight Club Hamburg. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        // TODO: Replace with your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT.appspot.com",
+            appId: "YOUR_APP_ID"
+        };
+        
+        // Import Firebase modules
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getStorage, ref, listAll, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js';
+        import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const storage = getStorage(app);
+        const db = getFirestore(app);
+        
+        // DOM elements
+        const galleryContainer = document.getElementById('gallery-container');
+        const pricesContainer = document.getElementById('prices-container');
+        
+        // Load gallery images
+        async function loadGallery() {
+            try {
+                const imagesRef = ref(storage, 'images/');
+                const result = await listAll(imagesRef);
+                
+                if (result.items.length === 0) {
+                    galleryContainer.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-images"></i>
+                            <h3>Keine Bilder vorhanden</h3>
+                            <p>Die Galerie wird bald mit neuen Bildern gefüllt.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Sort by filename (newest first due to timestamp prefix)
+                const sortedItems = result.items.sort((a, b) => b.name.localeCompare(a.name));
+                
+                const galleryGrid = document.createElement('div');
+                galleryGrid.className = 'gallery-grid';
+                
+                for (const itemRef of sortedItems) {
+                    try {
+                        const url = await getDownloadURL(itemRef);
+                        const galleryItem = document.createElement('div');
+                        galleryItem.className = 'gallery-item';
+                        galleryItem.innerHTML = `
+                            <img src="${url}" alt="${itemRef.name}" loading="lazy">
+                            <div class="gallery-item-info">
+                                <h3>Training</h3>
+                                <p>Central Fight Club Hamburg</p>
+                            </div>
+                        `;
+                        galleryGrid.appendChild(galleryItem);
+                    } catch (error) {
+                        console.error('Error loading image:', error);
+                    }
+                }
+                
+                galleryContainer.innerHTML = '';
+                galleryContainer.appendChild(galleryGrid);
+            } catch (error) {
+                galleryContainer.innerHTML = `
+                    <div class="error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Fehler beim Laden der Galerie</h3>
+                        <p>${error.message}</p>
+                        <button class="retry-btn" onclick="loadGallery()">Erneut versuchen</button>
+                    </div>
+                `;
+            }
+        }
+        
+        // Load prices
+        async function loadPrices() {
+            try {
+                const pricesRef = collection(db, 'prices');
+                const snapshot = await getDocs(pricesRef);
+                
+                if (snapshot.empty) {
+                    pricesContainer.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-euro-sign"></i>
+                            <h3>Keine Preise verfügbar</h3>
+                            <p>Die Preise werden bald aktualisiert.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const prices = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                prices.sort((a, b) => (a.order || 0) - (b.order || 0));
+                
+                const pricesGrid = document.createElement('div');
+                pricesGrid.className = 'prices-grid';
+                
+                prices.forEach(price => {
+                    const priceCard = document.createElement('div');
+                    priceCard.className = 'price-card';
+                    priceCard.innerHTML = `
+                        <h3>${price.name}</h3>
+                        <div class="price">${price.price.toFixed(2)} €</div>
+                        <p>Monatlich</p>
+                    `;
+                    pricesGrid.appendChild(priceCard);
+                });
+                
+                pricesContainer.innerHTML = '';
+                pricesContainer.appendChild(pricesGrid);
+            } catch (error) {
+                pricesContainer.innerHTML = `
+                    <div class="error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Fehler beim Laden der Preise</h3>
+                        <p>${error.message}</p>
+                        <button class="retry-btn" onclick="loadPrices()">Erneut versuchen</button>
+                    </div>
+                `;
+            }
+        }
+        
+        // Make functions globally available for retry buttons
+        window.loadGallery = loadGallery;
+        window.loadPrices = loadPrices;
+        
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadGallery();
+            loadPrices();
+        });
+    </script>
+    
+    <!-- JavaScript -->
+    <script src="js/modern-script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz - Central Fight Club Hamburg</title>
+    <meta name="description" content="Datenschutzerklärung des Central Fight Club Hamburg. Informationen zum Umgang mit Ihren personenbezogenen Daten.">
+    <meta name="keywords" content="Datenschutz, Central Fight Club, Hamburg, Datenschutzerklärung, DSGVO">
+    <meta name="author" content="Central Fight Club Hamburg">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.centralfightclub.de/datenschutz/">
+    <meta property="og:title" content="Datenschutz - Central Fight Club Hamburg">
+    <meta property="og:description" content="Datenschutzerklärung des Central Fight Club Hamburg. Informationen zum Umgang mit Ihren personenbezogenen Daten.">
+    <meta property="og:image" content="https://www.centralfightclub.de/s/misc/logo.jpg?t=1749434819">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.centralfightclub.de/datenschutz/">
+    <meta property="twitter:title" content="Datenschutz - Central Fight Club Hamburg">
+    <meta property="twitter:description" content="Datenschutzerklärung des Central Fight Club Hamburg.">
+    <meta property="twitter:image" content="https://www.centralfightclub.de/s/misc/logo.jpg?t=1749434819">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/modern-style.css">
+    
+    <style>
+/* Cookie Banner Styles */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #dc2626;
+  padding: 20px;
+  z-index: 10000;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-banner.show {
+  transform: translateY(0);
+}
+
+.cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+}
+
+.cookie-content p {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.cookie-buttons .btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cookie-buttons .btn-primary {
+  background: #dc2626;
+  color: white;
+}
+
+.cookie-buttons .btn-primary:hover {
+  background: #b91c1c;
+}
+
+.cookie-buttons .btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.cookie-buttons .btn-secondary:hover {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.cookie-link {
+  margin: 0;
+}
+
+.cookie-link a {
+  color: #dc2626;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.cookie-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    padding: 15px;
+  }
+  
+  .cookie-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cookie-buttons .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html" class="logo">
+                        <img src="img/Navbar-Logo.png" alt="Central Fight Club Hamburg" class="logo-img">
+                    </a>
+                </div>
+                
+                <div class="navbar-menu" id="navbar-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ueber-uns.html" class="nav-link">Über uns</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trainingsplan.html" class="nav-link">Trainingsplan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trainer.html" class="nav-link">Trainer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="galerie.html" class="nav-link">Galerie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="preise.html" class="nav-link">Preise</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#kontakt" class="nav-link">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="navbar-toggle" id="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Datenschutz</h1>
+                <p class="hero-subtitle">Informationen zum Umgang mit Ihren personenbezogenen Daten</p>
+            </div>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- Datenschutz Content Section -->
+    <section class="section">
+        <div class="container">
+            <div class="legal-content">
+                <div class="legal-section">
+                    <h2>1. Datenschutz auf einen Blick</h2>
+                    <div class="legal-info">
+                        <h3>Allgemeine Hinweise</h3>
+                        <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>
+                        
+                        <h3>Datenerfassung auf dieser Website</h3>
+                        <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+                        Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser Datenschutzerklärung entnehmen.</p>
+                        
+                        <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
+                        Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.</p>
+                        
+                        <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
+                        Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+                        
+                        <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
+                        Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
+                    </div>
+                </div>
+                
+                <div class="legal-section">
+                    <h2>2. Hosting</h2>
+                    <div class="legal-info">
+                        <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
+                        
+                        <h3>IONOS</h3>
+                        <p>Anbieter ist die IONOS SE, Elgendorfer Str. 57, 56410 Montabaur (nachfolgend IONOS). Wenn Sie unsere Website besuchen, erfasst IONOS verschiedene Logfiles inklusive Ihrer IP-Adressen.</p>
+                        
+                        <p>IONOS ist ein Dienst der IONOS SE. Die Datenschutzerklärung von IONOS finden Sie hier: <a href="https://www.ionos.de/terms-gtc/terms-privacy" target="_blank" rel="noopener">https://www.ionos.de/terms-gtc/terms-privacy</a></p>
+                        
+                        <p>Die Nutzung von IONOS erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) umfasst. Die Einwilligung ist jederzeit widerrufbar.</p>
+                    </div>
+                </div>
+                
+                <div class="legal-section">
+                    <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
+                    <div class="legal-info">
+                        <h3>Datenschutz</h3>
+                        <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+                        
+                        <p>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.</p>
+                        
+                        <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
+                        
+                        <h3>Hinweis zur verantwortlichen Stelle</h3>
+                        <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+                        
+                        <p>Central Fight Club Hamburg GmbH<br>
+                        Droopweg 25<br>
+                        20537 Hamburg<br>
+                        Deutschland</p>
+                        
+                        <p>E-Mail: <a href="mailto:cfchamburg@outlook.com">cfchamburg@outlook.com</a></p>
+                        
+                        <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
+                        
+                        <h3>Speicherdauer</h3>
+                        <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.</p>
+                        
+                        <h3>Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung auf dieser Website</h3>
+                        <p>Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 2 lit. a DSGVO, sofern besondere Datenkategorien nach Art. 9 Abs. 1 DSGVO verarbeitet werden. Im Falle einer ausdrücklichen Einwilligung in die Übertragung personenbezogener Daten in Drittstaaten erfolgt die Datenverarbeitung außerdem auf Grundlage von Art. 49 Abs. 1 lit. a DSGVO. Sofern Sie in die Speicherung von Cookies oder in den Zugriff auf Informationen in Ihr Endgerät (z. B. via Device-Fingerprinting) eingewilligt haben, erfolgt die Datenverarbeitung zusätzlich auf Grundlage von § 25 Abs. 1 TTDSG. Die Einwilligung ist jederzeit widerrufbar. Sind Ihre Daten zur Vertragserfüllung oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, verarbeiten wir Ihre Daten auf Grundlage des Art. 6 Abs. 1 lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur Erfüllung einer rechtlichen Verpflichtung erforderlich sind auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO. Die Datenverarbeitung kann ferner auf Grundlage unseres berechtigten Interesses nach Art. 6 Abs. 1 lit. f DSGVO erfolgen. Über die jeweils im Einzelfall einschlägigen Rechtsgrundlagen wird in den folgenden Absätzen dieser Datenschutzerklärung informiert.</p>
+                        
+                        <h3>Hinweis zur Datenweitergabe in die USA und sonstige Drittstaaten</h3>
+                        <p>Wir verwenden unter anderem Tools von Unternehmen mit Sitz in den USA oder sonstigen datenschutzrechtlich nicht sicheren Drittstaaten. Wenn diese Tools aktiv sind, können Ihre personenbezogene Daten in diese Drittstaaten übertragen und dort verarbeitet werden. Wir weisen darauf hin, dass in diesen Ländern kein mit der EU vergleichbares Datenschutzniveau garantiert werden kann. Beispielsweise sind US-Unternehmen dazu verpflichtet, personenbezogene Daten an Sicherheitsbehörden herauszugeben, ohne dass Sie als Betroffener hiergegen gerichtlich vorgehen könnten. Es kann daher nicht ausgeschlossen werden, dass US-Behörden (z. B. Geheimdienste) Ihre auf US-Servern befindlichen Daten zu Überwachungszwecken verarbeiten, auswerten und dauerhaft speichern. Wir haben auf diese Verarbeitungstätigkeiten keinen Einfluss.</p>
+                        
+                        <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+                        <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+                        
+                        <h3>Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen Direktwerbung (Art. 21 DSGVO)</h3>
+                        <p>WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN; DIES GILT AUCH FÜR EIN AUF DIESE BESTIMMUNGEN GESTÜTZTES PROFILING. DIE JEWEILIGE RECHTSGRUNDLAGE, AUF DENEN EINE VERARBEITUNG BERUHT, ENTNEHMEN SIE DIESER DATENSCHUTZERKLÄRUNG. WENN SIE WIDERSPRUCH EINLEGEN, WERDEN WIR IHRE BETROFFENEN PERSONENBEZOGENEN DATEN NICHT MEHR VERARBEITEN, ES SEI DENN, WIR KÖNNEN ZWINGENDE SCHUTZWÜRDIGE GRÜNDE FÜR DIE VERARBEITUNG NACHWEISEN, DIE IHRE INTERESSEN, RECHTE UND FREIHEITEN ÜBERWIEGEN ODER DIE VERARBEITUNG DIENT DER GELTENDMACHUNG, AUSÜBUNG ODER VERTEIDIGUNG VON RECHTSANSPRÜCHEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO).</p>
+                        
+                        <p>WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, SO HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN ZUM ZWECKE DERARTIGER WERBUNG EINZULEGEN; DIES GILT AUCH FÜR DAS PROFILING, SOWEIT ES MIT SOLCHER DIREKTWERBUNG IN VERBINDUNG STEHT. WENN SIE WIDERSPRECHEN, WERDEN IHRE PERSONENBEZOGENEN DATEN ANSCHLIESSEND NICHT MEHR ZUM ZWECKE DER DIREKTWERBUNG VERWENDET (WIDERSPRUCH NACH ART. 21 ABS. 2 DSGVO).</p>
+                        
+                        <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
+                        <p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.</p>
+                        
+                        <h3>Recht auf Datenübertragbarkeit</h3>
+                        <p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in ein gängigen, maschinenlesbaren Format aushändigen zu lassen. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.</p>
+                        
+                        <h3>Auskunft, Löschung und Berichtigung</h3>
+                        <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.</p>
+                        
+                        <h3>Recht auf Einschränkung der Verarbeitung</h3>
+                        <p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit an uns wenden. Das Recht auf Einschränkung der Verarbeitung besteht in folgenden Fällen:</p>
+                        
+                        <ul>
+                            <li>Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, benötigen wir in der Regel Zeit, um dies zu überprüfen. Für die Dauer der Prüfung haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+                            <li>Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtmäßig geschah/geschieht, können Sie statt der Löschung die Einschränkung der Datenverarbeitung verlangen.</li>
+                            <li>Wenn wir Ihre personenbezogenen Daten nicht mehr benötigen, Sie sie jedoch zur Ausübung, Verteidigung oder Geltendmachung von Rechtsansprüchen benötigen, haben Sie das Recht, statt der Löschung die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+                            <li>Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine Abwägung zwischen Ihren und unseren Interessen vorgenommen werden. Solange noch nicht feststeht, wessen Interessen überwiegen, haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+                        </ul>
+                        
+                        <p>Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten eingeschränkt haben, dürfen diese Daten – von ihrer Speicherung abgesehen – nur mit Ihrer Einwilligung oder zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen oder juristischen Person oder aus Gründen eines wichtigen öffentlichen Interesses der Europäischen Union oder eines Mitgliedstaats verarbeitet werden.</p>
+                    </div>
+                </div>
+                
+                <div class="legal-section" id="cookies">
+                    <h2>4. Cookies und Tracking</h2>
+                    <div class="legal-info">
+                        <h3>Was sind Cookies?</h3>
+                        <p>Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie helfen uns dabei, unsere Website zu verbessern und Ihnen eine bessere Benutzererfahrung zu bieten.</p>
+                        
+                        <h3>Verwendung von Cookies auf dieser Website</h3>
+                        <p>Wir verwenden Cookies nur in dem Umfang, der für die Funktionalität unserer Website erforderlich ist. Eine detaillierte Aufstellung der verwendeten Cookies finden Sie unten:</p>
+                        
+                        <h4>Notwendige Cookies</h4>
+                        <p>Diese Cookies sind für das Funktionieren der Website unerlässlich und können nicht deaktiviert werden:</p>
+                        <ul>
+                            <li><strong>Cookie-Einwilligung:</strong> Speichert Ihre Cookie-Präferenz (localStorage)</li>
+                            <li><strong>Session-Cookies:</strong> Für die grundlegende Website-Funktionalität</li>
+                        </ul>
+                        
+                        <h4>Funktionale Cookies (nur nach Einwilligung)</h4>
+                        <p>Diese Cookies verbessern die Funktionalität der Website:</p>
+                        <ul>
+                            <li><strong>Google Fonts:</strong> Lädt Schriftarten von Google (nur bei Akzeptierung)</li>
+                            <li><strong>Font Awesome:</strong> Lädt Icons für bessere Darstellung</li>
+                        </ul>
+                        
+                        <h3>Cookie-Einstellungen verwalten</h3>
+                        <p>Sie können Ihre Cookie-Einstellungen jederzeit ändern, indem Sie:</p>
+                        <ul>
+                            <li>Ihren Browser-Cache und Cookies löschen</li>
+                            <li>Die Website erneut besuchen und Ihre Präferenz neu setzen</li>
+                            <li>Uns unter <a href="mailto:cfchamburg@outlook.com">cfchamburg@outlook.com</a> kontaktieren</li>
+                        </ul>
+                        
+                        <h3>Rechtsgrundlage</h3>
+                        <p>Die Verwendung von Cookies erfolgt auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) für funktionale Cookies und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) für notwendige Cookies.</p>
+                    </div>
+                </div>
+                
+                <div class="legal-section">
+                    <h2>5. Datenerfassung auf dieser Website</h2>
+                    <div class="legal-info">
+                        <h3>Kontaktformular</h3>
+                        <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+                        
+                        <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.</p>
+                        
+                        <p>Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.</p>
+                        
+                        <h3>Anfrage per E-Mail, Telefon oder Telefax</h3>
+                        <p>Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+                        
+                        <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.</p>
+                        
+                        <p>Die von Ihnen an uns per Kontaktanfragen übersandten Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben unberührt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="kontakt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kontakt</h2>
+                <p class="section-subtitle">Besuchen Sie uns in Hamburg</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Adresse</h3>
+                            <p>Droopweg 25<br>20537 Hamburg</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-Mail</h3>
+                            <p><a href="mailto:cfchamburg@outlook.com">cfchamburg@outlook.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Öffnungszeiten</h3>
+                            <p>Mo-Fr: 10:00 - 22:00 Uhr<br>Sa: 12:00 - 15:00 Uhr<br>So: 13:00 - 15:00 Uhr</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-social">
+                    <h3>Folgen Sie uns</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100063717544085" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://instagram.com/central_fight_club_hh?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Central Fight Club Hamburg</h3>
+                    <p>Professionelles Kampfsport-Training in Hamburg</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="trainingsplan.html">Trainingsplan</a></li>
+                        <li><a href="trainer.html">Trainer</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="preise.html">Preise</a></li>
+                        <li><a href="ueber-uns.html">Über uns</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Droopweg 25<br>20537 Hamburg</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Central Fight Club Hamburg. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies, um Ihnen die beste Erfahrung auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="btn btn-primary">Akzeptieren</button>
+                <button id="decline-cookies" class="btn btn-secondary">Ablehnen</button>
+            </div>
+            <p class="cookie-link">
+                <a href="datenschutz.html#cookies">Mehr Informationen</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/modern-script.js"></script>
+</body>
+</html> 

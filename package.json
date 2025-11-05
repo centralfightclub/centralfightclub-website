@@ -1,0 +1,25 @@
+{
+  "name": "central-fight-club-hamburg",
+  "version": "1.0.0",
+  "description": "Central Fight Club Hamburg - Professional Combat Sports Training",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'No build step required for static site'",
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": [
+    "combat-sports",
+    "martial-arts",
+    "boxing",
+    "mma",
+    "kickboxing",
+    "fitness",
+    "hamburg"
+  ],
+  "author": "Central Fight Club Hamburg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/central-fight-club"
+  }
+} 

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Fight Club Hamburg - Kampfsport & Fitness</title>
+    <meta name="description" content="Central Fight Club Hamburg - Ihr Kampfsport- und Fitnessstudio in Hamburg. Professionelles Training für Boxen, MMA, Kickboxen und mehr. Jetzt kostenloses Probetraining!">
+    <meta name="keywords" content="Central Fight Club, Hamburg, Kampfsport, Boxen, MMA, Kickboxen, Fitness, Training, Droopweg">
+    <meta name="author" content="Central Fight Club Hamburg">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.centralfightclub.de/">
+    <meta property="og:title" content="Central Fight Club Hamburg - Kampfsport & Fitness">
+    <meta property="og:description" content="Professionelles Kampfsport-Training in Hamburg. Boxen, MMA, Kickboxen und mehr. Jetzt kostenloses Probetraining!">
+    <meta property="og:image" content="https://www.centralfightclub.de/s/misc/logo.jpg?t=1749434819">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.centralfightclub.de/">
+    <meta property="twitter:title" content="Central Fight Club Hamburg - Kampfsport & Fitness">
+    <meta property="twitter:description" content="Professionelles Kampfsport-Training in Hamburg. Boxen, MMA, Kickboxen und mehr.">
+    <meta property="twitter:image" content="https://www.centralfightclub.de/s/misc/logo.jpg?t=1749434819">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/modern-style.css">
+    <style>
+/* Probetraining Popup Styles */
+.probetraining-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.probetraining-popup.show {
+  display: flex;
+}
+
+.probetraining-content {
+  background: #1a1a1a;
+  border: 2px solid #dc2626;
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  animation: popupSlideIn 0.3s ease-out;
+}
+
+@keyframes popupSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.probetraining-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+}
+
+.probetraining-close:hover {
+  color: #dc2626;
+}
+
+.probetraining-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.probetraining-text {
+  font-size: 16px;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.probetraining-hours {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid #dc2626;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.probetraining-hours h3 {
+  color: #dc2626;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.probetraining-hours p {
+  color: #ffffff;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.probetraining-contact {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.probetraining-contact p {
+  color: #cccccc;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.probetraining-contact a {
+  color: #dc2626;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.probetraining-contact a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .probetraining-content {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  
+  .probetraining-title {
+    font-size: 24px;
+  }
+  
+  .probetraining-text {
+    font-size: 14px;
+  }
+}
+
+/* Cookie Banner Styles */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #dc2626;
+  padding: 20px;
+  z-index: 10000;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-banner.show {
+  transform: translateY(0);
+}
+
+.cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+}
+
+.cookie-content p {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.cookie-buttons .btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cookie-buttons .btn-primary {
+  background: #dc2626;
+  color: white;
+}
+
+.cookie-buttons .btn-primary:hover {
+  background: #b91c1c;
+}
+
+.cookie-buttons .btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.cookie-buttons .btn-secondary:hover {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.cookie-link {
+  margin: 0;
+}
+
+.cookie-link a {
+  color: #dc2626;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.cookie-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    padding: 15px;
+  }
+  
+  .cookie-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cookie-buttons .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* About Section Styles */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #cccccc;
+}
+
+.about-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-placeholder {
+  background: rgba(220, 38, 38, 0.1);
+  border: 2px dashed #dc2626;
+  border-radius: 15px;
+  padding: 60px 40px;
+  text-align: center;
+  color: #dc2626;
+  width: 100%;
+  max-width: 400px;
+}
+
+.video-placeholder i {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.video-placeholder p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Sports Section Styles */
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.sport-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sport-card:hover {
+  transform: translateY(-5px);
+  border-color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.sport-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.sport-card:hover::before {
+  left: 100%;
+}
+
+.sport-icon {
+  font-size: 48px;
+  color: #dc2626;
+  margin-bottom: 20px;
+}
+
+.sport-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.sport-card p {
+  color: #cccccc;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .video-placeholder {
+    padding: 40px 20px;
+  }
+  
+  .sports-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .sport-card {
+    padding: 20px;
+  }
+}
+
+</style>
+<!-- Calendly Link-Widget End -->
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsActivityLocation",
+        "name": "Central Fight Club Hamburg",
+        "description": "Professionelles Kampfsport-Training in Hamburg",
+        "url": "https://www.centralfightclub.de",
+        "email": "cfchamburg@outlook.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Droopweg 25",
+            "addressLocality": "Hamburg",
+            "postalCode": "20537",
+            "addressCountry": "DE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "53.5511",
+            "longitude": "9.9937"
+        },
+        "openingHours": "Mo-Fr 10:00-22:00, Sa 12:00-15:00, So 13:00-15:00",
+        "priceRange": "€€"
+    }
+</script>
+</head>
+<body class="home-page">
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html" class="logo">
+                        <img src="img/Navbar-Logo.png" alt="Central Fight Club Hamburg" class="logo-img">
+</a>
+</div>
+                
+                <div class="navbar-menu" id="navbar-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ueber-uns.html" class="nav-link">Über uns</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trainingsplan.html" class="nav-link">Trainingsplan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trainer.html" class="nav-link">Trainer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="galerie.html" class="nav-link">Galerie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="preise.html" class="nav-link">Preise</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#kontakt" class="nav-link">Kontakt</a>
+                        </li>
+                    </ul>
+</div>
+                    <!-- Mobile Toggle -->
+                <div class="navbar-toggle" id="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+</div>
+</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="img/Title.png" alt="Central Fight Club Hamburg" class="hero-title-img">
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary" onclick="openProbetrainingPopup(); return false;">Probetraining</a>
+                    <a href="trainingsplan.html" class="btn btn-secondary">Trainingsplan</a>
+</div>
+</div>
+</div>
+        <div class="hero-background"></div>
+    </section>
+
+
+    <!-- Sports Section -->
+    <section class="sports section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Unsere Sportarten</h2>
+                <p class="section-subtitle">Wähle deine Kampfsport-Disziplin</p>
+            </div>
+            
+            <div class="sports-grid">
+                <div class="sport-card" onclick="showSportInfo('muay-thai')">
+                    <h3>Muay Thai–K1–Kickboxen</h3>
+                    <p>Dynamisches Kampfsporttraining mit kraftvollen Techniken</p>
+                </div>
+                
+                <div class="sport-card" onclick="showSportInfo('mma')">
+                    <h3>MMA</h3>
+                    <p>Mixed Martial Arts - Vielseitige Kampftechniken</p>
+                </div>
+                
+                <div class="sport-card" onclick="showSportInfo('bjj')">
+                    <h3>Brazilian Jiu-Jitsu</h3>
+                    <p>Technisch anspruchsvolle Bodenkampf-Kunst</p>
+                </div>
+                
+                <div class="sport-card" onclick="showSportInfo('lady-kickboxen')">
+                    <h3>Lady Kickboxen</h3>
+                    <p>Speziell für Frauen zugeschnittenes Training</p>
+                </div>
+                
+                <div class="sport-card" onclick="showSportInfo('kinder-jugend')">
+                    <h3>Kinder- & Jugend-Kickboxen</h3>
+                    <p>Altersgerechtes Training für die Kleinen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Modal -->
+    <div id="homepage-popup" class="popup-modal" style="display: none;">
+        <div class="popup-content">
+            <div class="popup-body">
+                <div class="popup-image">
+                    <img id="popup-img" src="" alt="Popup Image">
+                    <span class="popup-close-mobile">&times;</span>
+                </div>
+                <div class="popup-text">
+                    <h3 id="popup-title"></h3>
+                    <div id="popup-description"></div>
+                </div>
+            </div>
+            <span class="popup-close-desktop">&times;</span>
+        </div>
+    </div>
+
+    <!-- Gallery Preview Section -->
+    <section class="gallery-preview section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Galerie</h2>
+                <p class="section-subtitle">Einblicke in unser Training und die Community</p>
+            </div>
+
+            <div class="gallery-preview-button">
+                <a href="galerie.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-images"></i>
+                    Vollständige Galerie ansehen
+                </a>
+            </div>
+
+            <div class="gallery-preview-grid" id="gallery-preview">
+                <!-- Gallery preview images loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="kontakt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kontakt</h2>
+                <p class="section-subtitle">Besuchen Sie uns in Hamburg</p>
+</div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+</div>
+                        <div class="contact-details">
+                            <h3>Adresse</h3>
+                            <p>Droopweg 25<br>20537 Hamburg</p>
+</div>
+</div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+</div>
+                        <div class="contact-details">
+                            <h3>E-Mail</h3>
+                            <p><a href="mailto:cfchamburg@outlook.com">cfchamburg@outlook.com</a></p>
+</div>
+</div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+</div>
+                        <div class="contact-details">
+                            <h3>Öffnungszeiten</h3>
+                            <p>Mo-Fr: 10:00 - 22:00 Uhr<br>Sa: 12:00 - 15:00 Uhr<br>So: 13:00 - 15:00 Uhr</p>
+</div>
+</div>
+</div>
+                
+                <div class="contact-social">
+                    <h3>Folgen Sie uns</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100063717544085" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://instagram.com/central_fight_club_hh?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Central Fight Club Hamburg</h3>
+                    <p>Professionelles Kampfsport-Training in Hamburg</p>
+</div>
+                
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="ueber-uns.html">Über uns</a></li>
+                        <li><a href="trainingsplan.html">Trainingsplan</a></li>
+                        <li><a href="trainer.html">Trainer</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="preise.html">Preise</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                    </ul>
+</div>
+                
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Droopweg 25<br>20537 Hamburg</p>
+</div>
+</div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Central Fight Club Hamburg. Alle Rechte vorbehalten.</p>
+</div>
+</div>
+    </footer>
+
+    <!-- Probetraining Popup -->
+    <div id="probetraining-popup" class="probetraining-popup">
+        <div class="probetraining-content">
+            <button class="probetraining-close" onclick="closeProbetrainingPopup()">&times;</button>
+            
+            <h2 class="probetraining-title">Probetraining</h2>
+            
+            <p class="probetraining-text">
+                Sie können jederzeit zu uns kommen und ein kostenloses Probetraining absolvieren! 
+                Unsere Trainer freuen sich darauf, Ihnen unsere Trainingsmethoden zu zeigen.
+            </p>
+            
+            <div class="probetraining-hours">
+                <h3><i class="fas fa-clock"></i> Öffnungszeiten</h3>
+                <p><strong>Montag - Freitag:</strong> 10:00 - 22:00 Uhr</p>
+                <p><strong>Samstag:</strong> 12:00 - 15:00 Uhr</p>
+                <p><strong>Sonntag:</strong> 13:00 - 15:00 Uhr</p>
+            </div>
+            
+            <div class="probetraining-note" style="background: rgba(220, 38, 38, 0.1); border: 1px solid #dc2626; border-radius: 10px; padding: 15px; margin: 20px 0; text-align: left;">
+                <p style="color: #ffffff; font-size: 14px; margin: 0; line-height: 1.5;">
+                    <i class="fas fa-info-circle" style="color: #dc2626; margin-right: 8px;"></i>
+                    <strong>Ausnahme:</strong> In den Ferien bitten wir um kurze Rücksprache per E-Mail, da es zu abweichenden Trainingszeiten oder Pausen kommen kann.
+                </p>
+            </div>
+            
+            <div class="probetraining-contact">
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Adresse:</strong><br>
+                Droopweg 25, 20537 Hamburg</p>
+                
+                <p><i class="fas fa-envelope"></i> <strong>E-Mail:</strong><br>
+                <a href="mailto:cfchamburg@outlook.com">cfchamburg@outlook.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies, um Ihnen die beste Erfahrung auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="btn btn-primary">Akzeptieren</button>
+                <button id="decline-cookies" class="btn btn-secondary">Ablehnen</button>
+            </div>
+            <p class="cookie-link">
+                <a href="datenschutz.html#cookies">Mehr Informationen</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/modern-script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load gallery preview with first 6 images
+            const images = getOrderedImages ? getOrderedImages() : [];
+            if (images.length > 0) {
+                displayGalleryPreview(images.slice(0, 6));
+            }
+        });
+    </script>
+</body>
+</html>

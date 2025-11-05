@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Admin - Central Fight Club Hamburg</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 15px;
+            border: 1px solid #dc2626;
+        }
+        
+        .header h1 {
+            color: #dc2626;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        /* Login Form Styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a1a;
+        }
+        
+        .login-form {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .login-form h2 {
+            color: #dc2626;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .login-form p {
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #dc2626;
+        }
+        
+        .form-group input::placeholder {
+            color: #888888;
+        }
+        
+        .btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: #b91c1c;
+        }
+        
+        .error-message {
+            color: #dc2626;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .admin-content {
+            display: none;
+        }
+        
+        .admin-content.show {
+            display: block;
+        }
+        
+        .admin-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .admin-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .admin-section h2 {
+            color: #dc2626;
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background: #2a2a2a;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #dc2626;
+        }
+        
+        .btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .btn:hover {
+            background: #b91c1c;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #dc2626;
+            color: #dc2626;
+        }
+        
+        .btn-secondary:hover {
+            background: #dc2626;
+            color: white;
+        }
+        
+        .btn-danger {
+            background: #dc2626;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #b91c1c;
+        }
+        
+        .image-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .image-item {
+            position: relative;
+            border: 1px solid #444;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: move;
+            transition: all 0.3s ease;
+        }
+        
+        .image-item:hover {
+            border-color: #dc2626;
+            transform: translateY(-2px);
+        }
+        
+        .image-item.dragging {
+            opacity: 0.5;
+            transform: rotate(5deg);
+            z-index: 1000;
+        }
+        
+        .image-item.drag-over {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+        }
+        
+        .image-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .image-item .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(220, 38, 38, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 12px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .image-item .delete-btn:hover {
+            background: rgba(220, 38, 38, 1);
+            transform: scale(1.1);
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .price-item input {
+            width: 100px;
+            margin: 0 10px;
+        }
+        
+        .success-message {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid #22c55e;
+            color: #22c55e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .prices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .price-category {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .price-category h3 {
+            color: #dc2626;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .day-schedule {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .day-schedule h3 {
+            color: #dc2626;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .courses-list {
+            margin-bottom: 15px;
+        }
+        
+        /* Schedule Grid - Exact copy from modern-style.css */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .schedule-day {
+            background: #2d2d2d;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 1px solid #404040;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .schedule-day:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border-color: #dc2626;
+        }
+
+        .schedule-day h3 {
+            color: #dc2626;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .schedule-classes {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .schedule-class {
+            background: #1a1a1a;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #404040;
+            transition: border-color 0.3s ease;
+        }
+
+        .schedule-class:hover {
+            border-color: #dc2626;
+        }
+
+        .class-time {
+            color: #dc2626;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .class-name {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Input styling for editable schedule */
+        .schedule-class input {
+            background: transparent !important;
+            border: none !important;
+            color: inherit !important;
+            font-size: inherit !important;
+            font-weight: inherit !important;
+            text-align: center !important;
+            width: 100% !important;
+            padding: 5px !important;
+            border-radius: 4px !important;
+            transition: background-color 0.2s ease !important;
+        }
+        
+        .schedule-class input:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        .schedule-class input:focus {
+            background: rgba(255, 255, 255, 0.15) !important;
+            outline: 2px solid #dc2626 !important;
+            outline-offset: 2px !important;
+        }
+        
+        .class-time input {
+            color: #dc2626 !important;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+        }
+        
+        .class-time input::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+        
+        .class-time input::-moz-calendar-picker-indicator {
+            filter: invert(1);
+        }
+        
+        .class-name input {
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            font-size: 1.1rem !important;
+        }
+        
+        .add-course-btn {
+            background: rgba(34, 197, 94, 0.2) !important;
+            border: 1px solid #22c55e !important;
+            color: #22c55e !important;
+            font-size: 0.9rem !important;
+            padding: 8px 16px !important;
+            margin-top: 15px !important;
+            width: 100% !important;
+            border-radius: 6px !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .add-course-btn:hover {
+            background: rgba(34, 197, 94, 0.3) !important;
+            border-color: #16a34a !important;
+            color: #16a34a !important;
+        }
+        
+        .delete-course {
+            background: #dc2626 !important;
+            border: none !important;
+            color: #ffffff !important;
+            width: 24px !important;
+            height: 24px !important;
+            border-radius: 50% !important;
+            cursor: pointer !important;
+            font-size: 14px !important;
+            font-weight: bold !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            position: absolute !important;
+            top: 8px !important;
+            left: 8px !important;
+            transition: all 0.3s ease !important;
+            z-index: 10 !important;
+        }
+        
+        .delete-course:hover {
+            background: #b91c1c !important;
+            transform: scale(1.1) !important;
+        }
+        
+        .schedule-class {
+            position: relative !important;
+        }
+        
+        /* Sports Edit Grid - Compact */
+        .sports-edit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .sport-edit-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .sport-edit-card h4 {
+            color: #dc2626;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .sport-edit-card .form-group {
+            margin-bottom: 12px;
+        }
+        
+        .sport-edit-card .form-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .sport-edit-card label {
+            display: block;
+            color: #cccccc;
+            font-size: 12px;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        
+        .sport-edit-card .form-input {
+            width: 100%;
+            padding: 6px 8px;
+            font-size: 12px;
+        }
+        
+        .sport-edit-card .form-textarea {
+            width: 100%;
+            padding: 6px 8px;
+            font-size: 12px;
+            min-height: 60px;
+            resize: vertical;
+        }
+        
+        .btn-small {
+            background: rgba(220, 38, 38, 0.2);
+            color: #dc2626;
+            border: 1px solid #dc2626;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-small:hover {
+            background: rgba(220, 38, 38, 0.3);
+            color: #ffffff;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #dc2626;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #b91c1c;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-sections {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-form">
+            <h2>Admin Zugang</h2>
+            <p>Bitte geben Sie das Passwort ein, um auf den Admin-Bereich zuzugreifen.</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="password">Passwort:</label>
+                    <input type="password" id="password" name="password" placeholder="Passwort eingeben" required>
+                </div>
+                <button type="submit" class="btn">Anmelden</button>
+                <div class="error-message" id="errorMessage"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Content (hidden until login) -->
+    <div class="admin-content" id="adminContent">
+        <div class="container">
+            <a href="index.html" class="back-link">← Zurück zur Website</a>
+            
+            <div class="header">
+                <h1>Simple Admin</h1>
+                <p>Bilder hochladen und verwalten</p>
+                <button onclick="logout()" class="btn" style="margin-top: 10px; background: #666; font-size: 12px; padding: 5px 10px;">Logout</button>
+            </div>
+        
+        <div class="success-message" id="successMessage">
+            Änderungen gespeichert! Die Website wird aktualisiert.
+        </div>
+        
+        <div class="admin-sections">
+            <!-- Images Section -->
+            <div class="admin-section">
+                <h2>📸 Bilder</h2>
+                <p style="color: #cccccc; font-size: 14px; margin-bottom: 20px;">
+                    <strong>Anleitung:</strong> 
+                    <br>• <strong>Bilder auswählen</strong> - Wählen Sie ein oder mehrere Bilder aus
+                    <br>• <strong>"Bilder hochladen"</strong> - Klicken Sie um die Bilder zur Galerie hinzuzufügen
+                    <br>• <strong>🖱️ Drag & Drop</strong> - Ziehen Sie Bilder um die Reihenfolge zu ändern (Bilder werden grün hervorgehoben)
+                    <br>• <strong>"×" Button</strong> - Klicken Sie um Bilder zu löschen
+                </p>
+                <div class="form-group">
+                    <label>Neues Bild hochladen:</label>
+                    <input type="file" id="imageUpload" accept="image/*" multiple>
+                </div>
+                <button type="button" class="btn" onclick="uploadImages()">Bilder hochladen</button>
+                
+                <div class="image-preview" id="imagePreview">
+                    <!-- Images will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Opening Times Section -->
+            <div class="admin-section">
+                <h2>🕒 Öffnungszeiten</h2>
+                <p style="color: #cccccc; font-size: 14px; margin-bottom: 20px;">
+                    <strong>Anleitung:</strong> 
+                    <br>• <strong>Zeiten bearbeiten</strong> - Klicken Sie auf die Zeiten um sie zu ändern
+                    <br>• <strong>"Speichern"</strong> - Klicken Sie um die Änderungen zu speichern
+                </p>
+                
+                <div class="form-group">
+                    <label>Montag - Freitag:</label>
+                    <input type="text" id="weekdayHours" value="10:00–22:00 Uhr" class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label>Samstag:</label>
+                    <input type="text" id="saturdayHours" value="12:00–15:00 Uhr" class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label>Sonntag:</label>
+                    <input type="text" id="sundayHours" value="13:00–15:00 Uhr" class="form-input">
+                </div>
+                
+                <button type="button" class="btn" onclick="saveOpeningHours()">Öffnungszeiten speichern</button>
+            </div>
+            
+            <!-- Course Prices Section -->
+            <div class="admin-section">
+                <h2>💰 Kurs-Preise</h2>
+                <p style="color: #cccccc; font-size: 14px; margin-bottom: 20px;">
+                    <strong>Anleitung:</strong> 
+                    <br>• <strong>Preise bearbeiten</strong> - Klicken Sie auf die Preise um sie zu ändern
+                    <br>• <strong>"Speichern"</strong> - Klicken Sie um die Änderungen zu speichern
+                </p>
+                
+                <div class="prices-grid">
+                    <!-- Adults Prices -->
+                    <div class="price-category">
+                        <h3>Erwachsene</h3>
+                        <div class="form-group">
+                            <label>1 Kurs (24 Monate):</label>
+                            <input type="number" id="adult1course24" value="50" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>1 Kurs (12 Monate):</label>
+                            <input type="number" id="adult1course12" value="60" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>2 Kurse (24 Monate):</label>
+                            <input type="number" id="adult2course24" value="60" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>2 Kurse (12 Monate):</label>
+                            <input type="number" id="adult2course12" value="70" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Komplettpaket (24 Monate):</label>
+                            <input type="number" id="adultcomplete24" value="65" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Komplettpaket (12 Monate):</label>
+                            <input type="number" id="adultcomplete12" value="80" class="form-input">
+                        </div>
+                    </div>
+                    
+                    <!-- Youth Prices -->
+                    <div class="price-category">
+                        <h3>Jugendliche 13-17 Jahre</h3>
+                        <div class="form-group">
+                            <label>1 Kurs (24 Monate):</label>
+                            <input type="number" id="youth1course24" value="40" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>1 Kurs (12 Monate):</label>
+                            <input type="number" id="youth1course12" value="45" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>2 Kurse (24 Monate):</label>
+                            <input type="number" id="youth2course24" value="50" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>2 Kurse (12 Monate):</label>
+                            <input type="number" id="youth2course12" value="55" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Komplettpaket (24 Monate):</label>
+                            <input type="number" id="youthcomplete24" value="60" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Komplettpaket (12 Monate):</label>
+                            <input type="number" id="youthcomplete12" value="65" class="form-input">
+                        </div>
+                    </div>
+                    
+                    <!-- Children Prices -->
+                    <div class="price-category">
+                        <h3>Kinder bis 12 Jahre</h3>
+                        <div class="form-group">
+                            <label>1 Kurs (24 Monate):</label>
+                            <input type="number" id="child1course24" value="30" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>1 Kurs (12 Monate):</label>
+                            <input type="number" id="child1course12" value="35" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>1 Kurs (6 Monate):</label>
+                            <input type="number" id="child1course6" value="40" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>2 Kurse (24 Monate):</label>
+                            <input type="number" id="child2course24" value="40" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>2 Kurse (12 Monate):</label>
+                            <input type="number" id="child2course12" value="45" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>2 Kurse (6 Monate):</label>
+                            <input type="number" id="child2course6" value="50" class="form-input">
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn" onclick="saveCoursePrices()">Preise speichern</button>
+            </div>
+            
+            <!-- Sports Section -->
+            <div class="admin-section">
+                <h2>🥊 Sportarten</h2>
+                <p style="color: #cccccc; font-size: 14px; margin-bottom: 20px;">
+                    <strong>Anleitung:</strong> 
+                    <br>• <strong>Titel bearbeiten</strong> - Ändern Sie die Namen der Sportarten
+                    <br>• <strong>Beschreibungen bearbeiten</strong> - Ändern Sie die kurzen Beschreibungen
+                    <br>• <strong>Popup-Texte bearbeiten</strong> - Ändern Sie die detaillierten Beschreibungen in den Popups
+                    <br>• <strong>"Speichern"</strong> - Klicken Sie um alle Änderungen zu speichern
+                </p>
+                
+                <div class="sports-edit-grid">
+                    <!-- Muay Thai -->
+                    <div class="sport-edit-card">
+                        <h4>Muay Thai-K1-Kickboxen</h4>
+                        <div class="form-group">
+                            <label>Titel:</label>
+                            <input type="text" id="muay-thai-title" value="Muay Thai–K1–Kickboxen" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Kurze Beschreibung:</label>
+                            <input type="text" id="muay-thai-desc" value="Dynamisches Kampfsporttraining mit kraftvollen Techniken" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Popup-Text:</label>
+                            <textarea id="muay-thai-popup" class="form-textarea" rows="3">Ein dynamisches Kampfsporttraining, das die kraftvollen Techniken des Muay Thai – Knie, Ellbogen, Clinch – mit den schnellen Schlag- und Kickkombinationen des K1 Kickboxens vereint. Perfekt, um Kraft, Ausdauer, Koordination und Reaktionsfähigkeit zu steigern, während du gleichzeitig die richtige Technik und Selbstverteidigung lernst.</textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- MMA -->
+                    <div class="sport-edit-card">
+                        <h4>MMA</h4>
+                        <div class="form-group">
+                            <label>Titel:</label>
+                            <input type="text" id="mma-title" value="MMA" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Kurze Beschreibung:</label>
+                            <input type="text" id="mma-desc" value="Mixed Martial Arts - Vielseitige Kampftechniken" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Popup-Text:</label>
+                            <textarea id="mma-popup" class="form-textarea" rows="3">Mixed Martial Arts (MMA) vereint Techniken aus Muay Thai, Kickboxen, Ringen, Judo und Brazilian Jiu-Jitsu. Im Training lernst du vielseitige Schlag-, Tritt-, Wurf- und Bodentechniken. MMA fördert Kraft, Beweglichkeit und Strategie – perfekt für alle, die einen abwechslungsreichen Kampfsport suchen.</textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- BJJ -->
+                    <div class="sport-edit-card">
+                        <h4>Brazilian Jiu-Jitsu</h4>
+                        <div class="form-group">
+                            <label>Titel:</label>
+                            <input type="text" id="bjj-title" value="Brazilian Jiu-Jitsu" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Kurze Beschreibung:</label>
+                            <input type="text" id="bjj-desc" value="Technisch anspruchsvolle Bodenkampf-Kunst" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Popup-Text:</label>
+                            <textarea id="bjj-popup" class="form-textarea" rows="3">Brazilian Jiu-Jitsu (BJJ) ist eine technisch anspruchsvolle Kampfkunst, die sich auf Bodenkampf und Hebeltechniken konzentriert. Hier lernst du, deinen Gegner durch Griff- und Haltetechniken zu kontrollieren – perfekt für Selbstverteidigung, Kraftaufbau und strategisches Denken.</textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Lady Kickboxen -->
+                    <div class="sport-edit-card">
+                        <h4>Lady Kickboxen</h4>
+                        <div class="form-group">
+                            <label>Titel:</label>
+                            <input type="text" id="lady-title" value="Lady Kickboxen" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Kurze Beschreibung:</label>
+                            <input type="text" id="lady-desc" value="Speziell für Frauen zugeschnittenes Training" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Popup-Text:</label>
+                            <textarea id="lady-popup" class="form-textarea" rows="3">Lady-Kickboxen ist speziell auf Frauen zugeschnitten. Hier werden Kick- und Schlagtechniken mit Fitnessübungen kombiniert – für mehr Kraft, Ausdauer und Selbstbewusstsein. Ein motivierendes Training, das Spaß macht und dir ein sicheres Auftreten vermittelt.</textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Kinder & Jugend -->
+                    <div class="sport-edit-card">
+                        <h4>Kinder- & Jugend-Kickboxen</h4>
+                        <div class="form-group">
+                            <label>Titel:</label>
+                            <input type="text" id="kinder-title" value="Kinder- & Jugend-Kickboxen" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Kurze Beschreibung:</label>
+                            <input type="text" id="kinder-desc" value="Altersgerechtes Training für die Kleinen" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Popup-Text:</label>
+                            <textarea id="kinder-popup" class="form-textarea" rows="3">In unseren Kursen für Kinder und Jugendliche vermitteln wir Kickboxen altersgerecht und spielerisch. Neben Technik und Koordination stehen Disziplin, Respekt und Teamgeist im Mittelpunkt. Das Training stärkt Körper, Selbstvertrauen und Konzentrationsfähigkeit.</textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn" onclick="saveSportsContent()" style="margin-top: 20px;">Sportarten speichern</button>
+            </div>
+
+            <!-- Homepage Popup Section -->
+            <div class="admin-section">
+                <h2>📢 Homepage Popup</h2>
+                <p style="color: #cccccc; font-size: 14px; margin-bottom: 20px;">
+                    <strong>Anleitung:</strong>
+                    <br>• <strong>Popup aktivieren/deaktivieren</strong> - Schalten Sie den Popup ein/aus
+                    <br>• <strong>Titel bearbeiten</strong> - Ändern Sie den Popup-Titel
+                    <br>• <strong>Beschreibung bearbeiten</strong> - Bearbeiten Sie den Popup-Text
+                    <br>• <strong>Bild auswählen</strong> - Wählen Sie ein Bild für den Popup
+                    <br>• <strong>"Speichern"</strong> - Klicken Sie um alle Änderungen zu speichern
+                </p>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox" id="popup-enabled" onchange="togglePopup()">
+                        Popup aktivieren
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="popup-title">Popup Titel:</label>
+                    <input type="text" id="popup-title" class="form-input" placeholder="Popup Titel eingeben...">
+                </div>
+
+                <div class="form-group">
+                    <label for="popup-description">Popup Beschreibung:</label>
+                    <textarea id="popup-description" class="form-textarea" rows="4" placeholder="Popup Beschreibung eingeben..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="popup-image">Popup Bild URL:</label>
+                    <input type="url" id="popup-image" class="form-input" placeholder="https://example.com/image.jpg">
+                    <div style="margin-top: 10px;">
+                        <button type="button" class="btn btn-secondary" onclick="selectPopupImage()">Bild aus Galerie wählen</button>
+                    </div>
+                </div>
+
+                <button type="button" class="btn" onclick="savePopupSettings()">Popup-Einstellungen speichern</button>
+            </div>
+
+            <!-- Training Schedule Section -->
+            <div class="admin-section">
+                <h2>📅 Trainingsplan</h2>
+                <p style="color: #cccccc; font-size: 14px; margin-bottom: 20px;">
+                    <strong>Anleitung:</strong> 
+                    <br>• <strong>Zeiten bearbeiten</strong> - Klicken Sie auf die Zeiten um sie zu ändern
+                    <br>• <strong>Kursnamen bearbeiten</strong> - Klicken Sie auf die Kursnamen um sie zu ändern
+                    <br>• <strong>"+ Kurs hinzufügen"</strong> - Fügt einen neuen Kurs zu diesem Tag hinzu
+                    <br>• <strong>"×" Button</strong> - Löscht einen Kurs (oben rechts in jedem Kurs)
+                    <br>• <strong>"Speichern"</strong> - Klicken Sie um alle Änderungen zu speichern
+                </p>
+                
+                <div class="schedule-grid">
+                    <!-- Monday -->
+                    <div class="schedule-day">
+                        <h3>Montag</h3>
+                        <div class="schedule-classes" id="monday-courses">
+                            <!-- Courses will be loaded here -->
+                        </div>
+                        <button type="button" class="btn add-course-btn" onclick="addCourse('monday')">+ Kurs hinzufügen</button>
+                    </div>
+                    
+                    <!-- Tuesday -->
+                    <div class="schedule-day">
+                        <h3>Dienstag</h3>
+                        <div class="schedule-classes" id="tuesday-courses">
+                            <!-- Courses will be loaded here -->
+                        </div>
+                        <button type="button" class="btn add-course-btn" onclick="addCourse('tuesday')">+ Kurs hinzufügen</button>
+                    </div>
+                    
+                    <!-- Wednesday -->
+                    <div class="schedule-day">
+                        <h3>Mittwoch</h3>
+                        <div class="schedule-classes" id="wednesday-courses">
+                            <!-- Courses will be loaded here -->
+                        </div>
+                        <button type="button" class="btn add-course-btn" onclick="addCourse('wednesday')">+ Kurs hinzufügen</button>
+                    </div>
+                    
+                    <!-- Thursday -->
+                    <div class="schedule-day">
+                        <h3>Donnerstag</h3>
+                        <div class="schedule-classes" id="thursday-courses">
+                            <!-- Courses will be loaded here -->
+                        </div>
+                        <button type="button" class="btn add-course-btn" onclick="addCourse('thursday')">+ Kurs hinzufügen</button>
+                    </div>
+                    
+                    <!-- Friday -->
+                    <div class="schedule-day">
+                        <h3>Freitag</h3>
+                        <div class="schedule-classes" id="friday-courses">
+                            <!-- Courses will be loaded here -->
+                        </div>
+                        <button type="button" class="btn add-course-btn" onclick="addCourse('friday')">+ Kurs hinzufügen</button>
+                    </div>
+                    
+                    <!-- Saturday -->
+                    <div class="schedule-day">
+                        <h3>Samstag</h3>
+                        <div class="schedule-classes" id="saturday-courses">
+                            <!-- Courses will be loaded here -->
+                        </div>
+                        <button type="button" class="btn add-course-btn" onclick="addCourse('saturday')">+ Kurs hinzufügen</button>
+                    </div>
+                    
+                    <!-- Sunday -->
+                    <div class="schedule-day">
+                        <h3>Sonntag</h3>
+                        <div class="schedule-classes" id="sunday-courses">
+                            <!-- Courses will be loaded here -->
+                        </div>
+                        <button type="button" class="btn add-course-btn" onclick="addCourse('sunday')">+ Kurs hinzufügen</button>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn" onclick="saveTrainingSchedule()" style="margin-top: 20px;">Trainingsplan speichern</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load saved data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadImages();
+            loadOpeningHours();
+            loadCoursePrices();
+            loadTrainingSchedule();
+            loadSportsContent();
+            loadPopupSettings();
+            
+            // Force load default schedule if none exists
+            const savedSchedule = JSON.parse(localStorage.getItem('trainingSchedule') || '{}');
+            if (Object.keys(savedSchedule).length === 0) {
+                const defaultSchedule = getDefaultSchedule();
+                localStorage.setItem('trainingSchedule', JSON.stringify(defaultSchedule));
+                loadTrainingSchedule();
+            }
+        });
+        
+        // Images Management
+        
+        // Images Management
+        function loadImages() {
+            const saved = localStorage.getItem('galleryImages');
+            let images = saved ? JSON.parse(saved) : [];
+            
+            // If no saved images, load default website images
+            if (images.length === 0) {
+                images = getDefaultImages();
+                localStorage.setItem('galleryImages', JSON.stringify(images));
+            }
+            
+            displayImages(images);
+        }
+        
+        
+        function displayImages(images) {
+            const container = document.getElementById('imagePreview');
+            container.innerHTML = '';
+            
+            // Filter out empty or invalid images
+            const validImages = images.filter(image => 
+                image && 
+                image.url && 
+                image.url.trim() !== '' && 
+                image.name && 
+                image.name.trim() !== ''
+            );
+            
+            // Update localStorage with only valid images
+            if (validImages.length !== images.length) {
+                localStorage.setItem('galleryImages', JSON.stringify(validImages));
+                showSuccessMessage();
+            }
+            
+            // Sort by order (ascending) - same as website
+            validImages.sort((a, b) => {
+                return (a.order || 0) - (b.order || 0);
+            });
+            
+            validImages.forEach((image, index) => {
+                const imageItem = document.createElement('div');
+                imageItem.className = 'image-item';
+                imageItem.draggable = true;
+                imageItem.dataset.index = index;
+                imageItem.innerHTML = `
+                    <img src="${image.url}" alt="${image.name}" onerror="this.parentElement.style.display='none'">
+                    <button class="delete-btn" data-url="${image.url}">×</button>
+                `;
+                
+                // Add click event listener to delete button
+                const deleteBtn = imageItem.querySelector('.delete-btn');
+                deleteBtn.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent drag events
+                    deleteImageByUrl(this.dataset.url);
+                });
+                
+                // Add drag and drop event listeners
+                imageItem.addEventListener('dragstart', handleDragStart);
+                imageItem.addEventListener('dragover', handleDragOver);
+                imageItem.addEventListener('dragleave', handleDragLeave);
+                imageItem.addEventListener('drop', handleDrop);
+                imageItem.addEventListener('dragend', handleDragEnd);
+                
+                container.appendChild(imageItem);
+            });
+        }
+        
+        let draggedElement = null;
+        
+        function handleDragStart(e) {
+            draggedElement = this;
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', this.outerHTML);
+        }
+        
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            e.dataTransfer.dropEffect = 'move';
+            this.classList.add('drag-over');
+            return false;
+        }
+        
+        function handleDragLeave(e) {
+            this.classList.remove('drag-over');
+        }
+        
+        function handleDrop(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+            
+            // Remove drag-over class from all items
+            document.querySelectorAll('.image-item').forEach(item => {
+                item.classList.remove('drag-over');
+            });
+            
+            if (draggedElement !== this) {
+                const images = JSON.parse(localStorage.getItem('galleryImages') || '[]');
+                const draggedIndex = parseInt(draggedElement.dataset.index);
+                const targetIndex = parseInt(this.dataset.index);
+                
+                // Remove the dragged element from its current position
+                const draggedImage = images.splice(draggedIndex, 1)[0];
+                
+                // Insert it at the new position
+                images.splice(targetIndex, 0, draggedImage);
+                
+                // Update order values to match new positions
+                images.forEach((image, index) => {
+                    image.order = index + 1;
+                });
+                
+                // Save the new order
+                localStorage.setItem('galleryImages', JSON.stringify(images));
+                
+                // Refresh the display
+                displayImages(images);
+                showSuccessMessage();
+                
+                // Notify other pages to refresh
+                window.dispatchEvent(new CustomEvent('galleryUpdated'));
+            }
+            
+            return false;
+        }
+        
+        function handleDragEnd(e) {
+            this.classList.remove('dragging');
+            // Remove drag-over class from all items
+            document.querySelectorAll('.image-item').forEach(item => {
+                item.classList.remove('drag-over');
+            });
+            draggedElement = null;
+        }
+        
+        function uploadImages() {
+            const fileInput = document.getElementById('imageUpload');
+            const files = fileInput.files;
+            
+            if (files.length === 0) {
+                alert('Bitte wählen Sie mindestens ein Bild aus.');
+                return;
+            }
+            
+            const images = JSON.parse(localStorage.getItem('galleryImages') || '[]');
+            let uploadCount = 0;
+            let totalFiles = Array.from(files).filter(file => file.type.startsWith('image/')).length;
+            
+            if (totalFiles === 0) {
+                alert('Bitte wählen Sie nur Bilddateien aus.');
+                return;
+            }
+            
+            Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        images.push({
+                            name: file.name,
+                            url: e.target.result,
+                            date: new Date().toISOString()
+                        });
+                        uploadCount++;
+                        
+                        // Only update when all files are processed
+                        if (uploadCount === totalFiles) {
+                            localStorage.setItem('galleryImages', JSON.stringify(images));
+                            displayImages(images);
+                            showSuccessMessage();
+                            
+                            // Notify other pages to refresh
+                            window.dispatchEvent(new CustomEvent('galleryUpdated'));
+                        }
+                    };
+                    reader.onerror = function() {
+                        alert('Fehler beim Laden der Datei: ' + file.name);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            fileInput.value = '';
+        }
+        
+        function deleteImage(index) {
+            if (confirm('Bild wirklich löschen?')) {
+                const images = JSON.parse(localStorage.getItem('galleryImages') || '[]');
+                images.splice(index, 1);
+                localStorage.setItem('galleryImages', JSON.stringify(images));
+                displayImages(images);
+                showSuccessMessage();
+                
+                // Notify other pages to refresh
+                window.dispatchEvent(new CustomEvent('galleryUpdated'));
+            }
+        }
+        
+        function deleteImageByUrl(imageUrl) {
+            if (confirm('Bild wirklich löschen?')) {
+                const images = JSON.parse(localStorage.getItem('galleryImages') || '[]');
+                
+                // Find and remove the image by URL
+                const filteredImages = images.filter(image => image.url !== imageUrl);
+                
+                if (filteredImages.length !== images.length) {
+                    localStorage.setItem('galleryImages', JSON.stringify(filteredImages));
+                    displayImages(filteredImages);
+                    showSuccessMessage();
+                    
+                    // Notify other pages to refresh
+                    window.dispatchEvent(new CustomEvent('galleryUpdated'));
+                } else {
+                    alert('Bild nicht gefunden!');
+                }
+            }
+        }
+        
+        
+        function getDefaultImages() {
+            // Default images that match the actual gallery order
+            return [
+                { name: "Fight Victory 1", url: "https://www.centralfightclub.de/s/cc_images/cache_19365611.JPG", order: 1 },
+                { name: "Fight Victory 2", url: "https://www.centralfightclub.de/s/cc_images/cache_19365612.JPG", order: 2 },
+                { name: "Hamburg Underground Fights Poster", url: "https://www.centralfightclub.de/s/cc_images/cache_19288383.JPG", order: 3 },
+                { name: "Fight Victory 3", url: "https://www.centralfightclub.de/s/cc_images/cache_19288384.jpg", order: 4 },
+                { name: "Group Selfie", url: "https://www.centralfightclub.de/s/cc_images/cache_19288385.JPG", order: 5 },
+                { name: "Group Photo with Banner", url: "https://www.centralfightclub.de/s/cc_images/cache_19288386.JPG", order: 6 },
+                { name: "Training Session", url: "https://www.centralfightclub.de/s/cc_images/cache_18034166.jpeg", order: 7 },
+                { name: "Trainer bei der Arbeit", url: "https://www.centralfightclub.de/s/cc_images/cache_18034167.jpeg", order: 8 },
+                { name: "Technik Training 2", url: "https://www.centralfightclub.de/s/cc_images/cache_18034168.jpeg", order: 9 },
+                { name: "Sparring Session 2", url: "https://www.centralfightclub.de/s/cc_images/cache_18034165.jpeg", order: 10 },
+                { name: "Fitness Training 3", url: "https://www.centralfightclub.de/s/cc_images/cache_17986572.jpg", order: 11 },
+                { name: "Central Fight Club 2", url: "https://www.centralfightclub.de/s/cc_images/cache_17986573.jpg", order: 12 },
+                { name: "Training Session 2", url: "https://www.centralfightclub.de/s/cc_images/cache_17986574.jpg", order: 13 },
+                { name: "Trainer bei der Arbeit 2", url: "https://www.centralfightclub.de/s/cc_images/cache_17986575.jpg", order: 14 },
+                { name: "Technik Training 3", url: "https://www.centralfightclub.de/s/cc_images/cache_17997373.jpeg", order: 15 },
+                { name: "Sparring Session 3", url: "https://www.centralfightclub.de/s/cc_images/cache_17997374.jpeg", order: 16 },
+                { name: "Fitness Training 4", url: "https://www.centralfightclub.de/s/cc_images/cache_17827066.jpeg", order: 17 },
+                { name: "Central Fight Club 3", url: "https://www.centralfightclub.de/s/cc_images/cache_17827067.jpeg", order: 18 },
+                { name: "Training Session 3", url: "https://www.centralfightclub.de/s/cc_images/cache_17827070.jpeg", order: 19 },
+                { name: "Trainer bei der Arbeit 3", url: "https://www.centralfightclub.de/s/cc_images/cache_17827071.jpeg", order: 20 }
+            ];
+        }
+        
+        function showSuccessMessage() {
+            const message = document.getElementById('successMessage');
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000);
+        }
+        
+        // Opening Hours Management
+        function loadOpeningHours() {
+            let savedHours = JSON.parse(localStorage.getItem('openingHours') || '{}');
+            
+            // Auto-update old Saturday hours (14:00) to new hours (15:00)
+            if (savedHours.saturday && (savedHours.saturday.includes('14:00') || savedHours.saturday.includes('14–00'))) {
+                savedHours.saturday = savedHours.saturday.replace(/14[–:]00/g, '15:00');
+                localStorage.setItem('openingHours', JSON.stringify(savedHours));
+            }
+            
+            // Set default opening hours if none exist
+            if (Object.keys(savedHours).length === 0) {
+                savedHours = {
+                    weekday: '10:00–22:00 Uhr',
+                    saturday: '12:00–15:00 Uhr',
+                    sunday: '13:00–15:00 Uhr'
+                };
+                localStorage.setItem('openingHours', JSON.stringify(savedHours));
+            }
+            
+            if (savedHours.weekday) {
+                document.getElementById('weekdayHours').value = savedHours.weekday;
+            }
+            if (savedHours.saturday) {
+                document.getElementById('saturdayHours').value = savedHours.saturday;
+            }
+            if (savedHours.sunday) {
+                document.getElementById('sundayHours').value = savedHours.sunday;
+            }
+        }
+        
+        function saveOpeningHours() {
+            const openingHours = {
+                weekday: document.getElementById('weekdayHours').value,
+                saturday: document.getElementById('saturdayHours').value,
+                sunday: document.getElementById('sundayHours').value
+            };
+            
+            localStorage.setItem('openingHours', JSON.stringify(openingHours));
+            showSuccessMessage();
+            
+            // Dispatch event to update other pages
+            window.dispatchEvent(new CustomEvent('openingHoursUpdated'));
+        }
+        
+        // Course Prices Management
+        function loadCoursePrices() {
+            const savedPrices = JSON.parse(localStorage.getItem('coursePrices') || '{}');
+            
+            // Adults
+            if (savedPrices.adult1course24) document.getElementById('adult1course24').value = savedPrices.adult1course24;
+            if (savedPrices.adult1course12) document.getElementById('adult1course12').value = savedPrices.adult1course12;
+            if (savedPrices.adult2course24) document.getElementById('adult2course24').value = savedPrices.adult2course24;
+            if (savedPrices.adult2course12) document.getElementById('adult2course12').value = savedPrices.adult2course12;
+            if (savedPrices.adultcomplete24) document.getElementById('adultcomplete24').value = savedPrices.adultcomplete24;
+            if (savedPrices.adultcomplete12) document.getElementById('adultcomplete12').value = savedPrices.adultcomplete12;
+            
+            // Youth
+            if (savedPrices.youth1course24) document.getElementById('youth1course24').value = savedPrices.youth1course24;
+            if (savedPrices.youth1course12) document.getElementById('youth1course12').value = savedPrices.youth1course12;
+            if (savedPrices.youth2course24) document.getElementById('youth2course24').value = savedPrices.youth2course24;
+            if (savedPrices.youth2course12) document.getElementById('youth2course12').value = savedPrices.youth2course12;
+            if (savedPrices.youthcomplete24) document.getElementById('youthcomplete24').value = savedPrices.youthcomplete24;
+            if (savedPrices.youthcomplete12) document.getElementById('youthcomplete12').value = savedPrices.youthcomplete12;
+            
+            // Children
+            if (savedPrices.child1course24) document.getElementById('child1course24').value = savedPrices.child1course24;
+            if (savedPrices.child1course12) document.getElementById('child1course12').value = savedPrices.child1course12;
+            if (savedPrices.child1course6) document.getElementById('child1course6').value = savedPrices.child1course6;
+            if (savedPrices.child2course24) document.getElementById('child2course24').value = savedPrices.child2course24;
+            if (savedPrices.child2course12) document.getElementById('child2course12').value = savedPrices.child2course12;
+            if (savedPrices.child2course6) document.getElementById('child2course6').value = savedPrices.child2course6;
+        }
+        
+        function saveCoursePrices() {
+            const coursePrices = {
+                // Adults
+                adult1course24: parseInt(document.getElementById('adult1course24').value),
+                adult1course12: parseInt(document.getElementById('adult1course12').value),
+                adult2course24: parseInt(document.getElementById('adult2course24').value),
+                adult2course12: parseInt(document.getElementById('adult2course12').value),
+                adultcomplete24: parseInt(document.getElementById('adultcomplete24').value),
+                adultcomplete12: parseInt(document.getElementById('adultcomplete12').value),
+                
+                // Youth
+                youth1course24: parseInt(document.getElementById('youth1course24').value),
+                youth1course12: parseInt(document.getElementById('youth1course12').value),
+                youth2course24: parseInt(document.getElementById('youth2course24').value),
+                youth2course12: parseInt(document.getElementById('youth2course12').value),
+                youthcomplete24: parseInt(document.getElementById('youthcomplete24').value),
+                youthcomplete12: parseInt(document.getElementById('youthcomplete12').value),
+                
+                // Children
+                child1course24: parseInt(document.getElementById('child1course24').value),
+                child1course12: parseInt(document.getElementById('child1course12').value),
+                child1course6: parseInt(document.getElementById('child1course6').value),
+                child2course24: parseInt(document.getElementById('child2course24').value),
+                child2course12: parseInt(document.getElementById('child2course12').value),
+                child2course6: parseInt(document.getElementById('child2course6').value)
+            };
+            
+            localStorage.setItem('coursePrices', JSON.stringify(coursePrices));
+            showSuccessMessage();
+            
+            // Dispatch event to update other pages
+            window.dispatchEvent(new CustomEvent('coursePricesUpdated'));
+        }
+        
+        // Training Schedule Management
+        function loadTrainingSchedule() {
+            let savedSchedule = JSON.parse(localStorage.getItem('trainingSchedule') || '{}');
+            const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+            
+            // If no saved schedule, load default courses
+            if (Object.keys(savedSchedule).length === 0) {
+                savedSchedule = getDefaultSchedule();
+                localStorage.setItem('trainingSchedule', JSON.stringify(savedSchedule));
+            }
+            
+            days.forEach(day => {
+                const courses = savedSchedule[day] || [];
+                displayDayCourses(day, courses);
+            });
+        }
+        
+        function getDefaultSchedule() {
+            // EXACT schedule from your actual website
+            return {
+                monday: [
+                    { name: "Thai-Kickboxen", time: "10:00" },
+                    { name: "Junior Thai-Kickboxen", time: "17:00" },
+                    { name: "Thai-Kickboxen", time: "18:00" },
+                    { name: "MMA", time: "19:00" }
+                ],
+                tuesday: [
+                    { name: "Little Ninjas", time: "17:00" },
+                    { name: "Lady Kickboxen", time: "18:00" }
+                ],
+                wednesday: [
+                    { name: "Thai-Kickboxen", time: "10:00" },
+                    { name: "Junior Thai-Kickboxen", time: "17:00" },
+                    { name: "Thai-Kickboxen", time: "18:00" },
+                    { name: "MMA", time: "19:00" }
+                ],
+                thursday: [
+                    { name: "Little Ninjas", time: "17:00" },
+                    { name: "Lady Kickboxen", time: "18:00" }
+                ],
+                friday: [
+                    { name: "MMA", time: "18:00" },
+                    { name: "Muay Thai", time: "19:30" }
+                ],
+                saturday: [
+                    { name: "Kinder Kickboxen", time: "10:00" },
+                    { name: "Jugend Kickboxen", time: "11:30" },
+                    { name: "Muay Thai", time: "13:00" }
+                ],
+                sunday: [
+                    { name: "Brazilian Jiu-Jitsu", time: "10:00" },
+                    { name: "K1 Kickboxen", time: "11:30" }
+                ]
+            };
+        }
+        
+        function displayDayCourses(day, courses) {
+            const container = document.getElementById(day + '-courses');
+            if (!container) {
+                console.log('Container not found for day:', day);
+                return;
+            }
+            
+            console.log('Displaying courses for', day, ':', courses);
+            
+            if (courses.length === 0) {
+                container.innerHTML = '<p style="color: #666; font-size: 12px; text-align: center; margin: 20px 0;">Keine Kurse geplant</p>';
+                return;
+            }
+            
+            container.innerHTML = courses.map((course, index) => `
+                <div class="schedule-class">
+                    <div class="class-time">
+                        <input type="time" value="${course.time}" placeholder="Zeit" onchange="updateCourseTime('${day}', ${index}, this.value)">
+                    </div>
+                    <div class="class-name">
+                        <input type="text" value="${course.name}" placeholder="Kursname" onchange="updateCourseName('${day}', ${index}, this.value)">
+                    </div>
+                    <button type="button" class="delete-course" onclick="deleteCourse('${day}', ${index})" title="Kurs löschen">×</button>
+                </div>
+            `).join('');
+        }
+        
+        function updateCourseTime(day, index, time) {
+            const savedSchedule = JSON.parse(localStorage.getItem('trainingSchedule') || '{}');
+            if (savedSchedule[day] && savedSchedule[day][index]) {
+                savedSchedule[day][index].time = time;
+                localStorage.setItem('trainingSchedule', JSON.stringify(savedSchedule));
+            }
+        }
+        
+        function updateCourseName(day, index, name) {
+            const savedSchedule = JSON.parse(localStorage.getItem('trainingSchedule') || '{}');
+            if (savedSchedule[day] && savedSchedule[day][index]) {
+                savedSchedule[day][index].name = name;
+                localStorage.setItem('trainingSchedule', JSON.stringify(savedSchedule));
+            }
+        }
+        
+        function saveTrainingSchedule() {
+            showSuccessMessage();
+            // Dispatch event to update other pages
+            window.dispatchEvent(new CustomEvent('trainingScheduleUpdated'));
+        }
+        
+        
+        function addCourse(day) {
+            const savedSchedule = JSON.parse(localStorage.getItem('trainingSchedule') || '{}');
+            if (!savedSchedule[day]) {
+                savedSchedule[day] = [];
+            }
+            
+            // Add new course with default values
+            savedSchedule[day].push({
+                name: "Neuer Kurs",
+                time: "18:00"
+            });
+            
+            localStorage.setItem('trainingSchedule', JSON.stringify(savedSchedule));
+            loadTrainingSchedule();
+            showSuccessMessage();
+        }
+        
+        function deleteCourse(day, index) {
+            const savedSchedule = JSON.parse(localStorage.getItem('trainingSchedule') || '{}');
+            if (savedSchedule[day] && savedSchedule[day][index]) {
+                savedSchedule[day].splice(index, 1);
+                localStorage.setItem('trainingSchedule', JSON.stringify(savedSchedule));
+                loadTrainingSchedule();
+                showSuccessMessage();
+            }
+        }
+        
+        // Sports Content Management
+        function loadSportsContent() {
+            const savedSports = JSON.parse(localStorage.getItem('sportsContent') || '{}');
+            
+            // Load Muay Thai
+            document.getElementById('muay-thai-title').value = savedSports['muay-thai-title'] || 'Muay Thai–K1–Kickboxen';
+            document.getElementById('muay-thai-desc').value = savedSports['muay-thai-desc'] || 'Dynamisches Kampfsporttraining mit kraftvollen Techniken';
+            document.getElementById('muay-thai-popup').value = savedSports['muay-thai-popup'] || 'Ein dynamisches Kampfsporttraining, das die kraftvollen Techniken des Muay Thai – Knie, Ellbogen, Clinch – mit den schnellen Schlag- und Kickkombinationen des K1 Kickboxens vereint. Perfekt, um Kraft, Ausdauer, Koordination und Reaktionsfähigkeit zu steigern, während du gleichzeitig die richtige Technik und Selbstverteidigung lernst.';
+            
+            // Load MMA
+            document.getElementById('mma-title').value = savedSports['mma-title'] || 'MMA';
+            document.getElementById('mma-desc').value = savedSports['mma-desc'] || 'Mixed Martial Arts - Vielseitige Kampftechniken';
+            document.getElementById('mma-popup').value = savedSports['mma-popup'] || 'Mixed Martial Arts (MMA) vereint Techniken aus Muay Thai, Kickboxen, Ringen, Judo und Brazilian Jiu-Jitsu. Im Training lernst du vielseitige Schlag-, Tritt-, Wurf- und Bodentechniken. MMA fördert Kraft, Beweglichkeit und Strategie – perfekt für alle, die einen abwechslungsreichen Kampfsport suchen.';
+            
+            // Load BJJ
+            document.getElementById('bjj-title').value = savedSports['bjj-title'] || 'Brazilian Jiu-Jitsu';
+            document.getElementById('bjj-desc').value = savedSports['bjj-desc'] || 'Technisch anspruchsvolle Bodenkampf-Kunst';
+            document.getElementById('bjj-popup').value = savedSports['bjj-popup'] || 'Brazilian Jiu-Jitsu (BJJ) ist eine technisch anspruchsvolle Kampfkunst, die sich auf Bodenkampf und Hebeltechniken konzentriert. Hier lernst du, deinen Gegner durch Griff- und Haltetechniken zu kontrollieren – perfekt für Selbstverteidigung, Kraftaufbau und strategisches Denken.';
+            
+            // Load Lady Kickboxen
+            document.getElementById('lady-title').value = savedSports['lady-title'] || 'Lady Kickboxen';
+            document.getElementById('lady-desc').value = savedSports['lady-desc'] || 'Speziell für Frauen zugeschnittenes Training';
+            document.getElementById('lady-popup').value = savedSports['lady-popup'] || 'Lady-Kickboxen ist speziell auf Frauen zugeschnitten. Hier werden Kick- und Schlagtechniken mit Fitnessübungen kombiniert – für mehr Kraft, Ausdauer und Selbstbewusstsein. Ein motivierendes Training, das Spaß macht und dir ein sicheres Auftreten vermittelt.';
+            
+            // Load Kinder & Jugend
+            document.getElementById('kinder-title').value = savedSports['kinder-title'] || 'Kinder- & Jugend-Kickboxen';
+            document.getElementById('kinder-desc').value = savedSports['kinder-desc'] || 'Altersgerechtes Training für die Kleinen';
+            document.getElementById('kinder-popup').value = savedSports['kinder-popup'] || 'In unseren Kursen für Kinder und Jugendliche vermitteln wir Kickboxen altersgerecht und spielerisch. Neben Technik und Koordination stehen Disziplin, Respekt und Teamgeist im Mittelpunkt. Das Training stärkt Körper, Selbstvertrauen und Konzentrationsfähigkeit.';
+        }
+        
+        function saveSportsContent() {
+            const sportsContent = {
+                'muay-thai-title': document.getElementById('muay-thai-title').value,
+                'muay-thai-desc': document.getElementById('muay-thai-desc').value,
+                'muay-thai-popup': document.getElementById('muay-thai-popup').value,
+                'mma-title': document.getElementById('mma-title').value,
+                'mma-desc': document.getElementById('mma-desc').value,
+                'mma-popup': document.getElementById('mma-popup').value,
+                'bjj-title': document.getElementById('bjj-title').value,
+                'bjj-desc': document.getElementById('bjj-desc').value,
+                'bjj-popup': document.getElementById('bjj-popup').value,
+                'lady-title': document.getElementById('lady-title').value,
+                'lady-desc': document.getElementById('lady-desc').value,
+                'lady-popup': document.getElementById('lady-popup').value,
+                'kinder-title': document.getElementById('kinder-title').value,
+                'kinder-desc': document.getElementById('kinder-desc').value,
+                'kinder-popup': document.getElementById('kinder-popup').value
+            };
+            
+            localStorage.setItem('sportsContent', JSON.stringify(sportsContent));
+            showSuccessMessage();
+            
+            // Dispatch event to update homepage
+            window.dispatchEvent(new CustomEvent('sportsContentUpdated'));
+        }
+
+        // Popup Management Functions
+        function loadPopupSettings() {
+            let popupSettings = JSON.parse(localStorage.getItem('homepagePopup') || '{}');
+
+            // Set default content if no settings exist
+            if (Object.keys(popupSettings).length === 0) {
+                popupSettings = {
+                    enabled: false,
+                    title: 'Willkommen bei Central Fight Club!',
+                    description: 'Entdecken Sie unsere Kampfsport-Kurse und werden Sie Teil unserer Community.\n\nVon Muay Thai über MMA bis hin zu Kinder-Kursen - wir haben für jeden das Richtige.',
+                    image: 'https://www.centralfightclub.de/s/cc_images/cache_19365611.JPG'
+                };
+                localStorage.setItem('homepagePopup', JSON.stringify(popupSettings));
+            }
+
+            // Load enabled state
+            document.getElementById('popup-enabled').checked = popupSettings.enabled || false;
+
+            // Load content
+            document.getElementById('popup-title').value = popupSettings.title || '';
+            document.getElementById('popup-description').value = popupSettings.description || '';
+            document.getElementById('popup-image').value = popupSettings.image || '';
+        }
+
+        function savePopupSettings() {
+            const popupSettings = {
+                enabled: document.getElementById('popup-enabled').checked,
+                title: document.getElementById('popup-title').value,
+                description: document.getElementById('popup-description').value,
+                image: document.getElementById('popup-image').value
+            };
+
+            localStorage.setItem('homepagePopup', JSON.stringify(popupSettings));
+            showSuccessMessage();
+
+            // Dispatch event to update homepage
+            window.dispatchEvent(new CustomEvent('popupSettingsUpdated'));
+        }
+
+        function togglePopup() {
+            // Auto-save when toggling
+            savePopupSettings();
+        }
+
+        function selectPopupImage() {
+            // Get gallery images for selection
+            const images = JSON.parse(localStorage.getItem('galleryImages') || '[]');
+            if (images.length === 0) {
+                alert('Keine Bilder in der Galerie verfügbar. Bitte laden Sie zuerst Bilder hoch.');
+                return;
+            }
+
+            // Create selection modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.9); z-index: 2000; display: flex;
+                justify-content: center; align-items: center;
+            `;
+
+            const modalContent = document.createElement('div');
+            modalContent.style.cssText = `
+                background: #1a1a1a; padding: 2rem; border-radius: 15px;
+                max-width: 800px; max-height: 80vh; overflow-y: auto;
+            `;
+
+            modalContent.innerHTML = `
+                <h3 style="color: #dc2626; margin-bottom: 1rem;">Bild auswählen</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    ${images.map((img, index) => `
+                        <div style="cursor: pointer; border: 2px solid #333; border-radius: 8px; overflow: hidden; transition: border-color 0.3s;"
+                             onclick="selectImage('${img.url}', '${img.name}')">
+                            <img src="${img.url}" alt="${img.name}" style="width: 100%; height: 100px; object-fit: cover;">
+                            <p style="padding: 0.5rem; font-size: 0.8rem; text-align: center;">${img.name}</p>
+                        </div>
+                    `).join('')}
+                </div>
+                <button onclick="closeImageModal()" style="background: #dc2626; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">Abbrechen</button>
+            `;
+
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal);
+
+            // Store modal reference for cleanup
+            window.currentImageModal = modal;
+        }
+
+        function selectImage(url, name) {
+            document.getElementById('popup-image').value = url;
+            closeImageModal();
+        }
+
+        function closeImageModal() {
+            if (window.currentImageModal) {
+                document.body.removeChild(window.currentImageModal);
+                window.currentImageModal = null;
+            }
+        }
+
+        // Password Authentication
+        const ADMIN_PASSWORD = 'david';
+        
+        // Always show login form first (remove auto-login for testing)
+        // if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+        //     showAdminContent();
+        // }
+        
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (password === ADMIN_PASSWORD) {
+                // Correct password
+                sessionStorage.setItem('adminLoggedIn', 'true');
+                showAdminContent();
+            } else {
+                // Wrong password
+                errorMessage.textContent = 'Falsches Passwort. Bitte versuchen Sie es erneut.';
+                document.getElementById('password').value = '';
+            }
+        });
+        
+        function showAdminContent() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('adminContent').classList.add('show');
+        }
+        
+        function logout() {
+            sessionStorage.removeItem('adminLoggedIn');
+            document.getElementById('loginContainer').style.display = 'flex';
+            document.getElementById('adminContent').classList.remove('show');
+            document.getElementById('password').value = '';
+            document.getElementById('errorMessage').textContent = '';
+        }
+        
+    </script>
+    </div> <!-- Close admin-content div -->
+</body>
+</html>

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns - Central Fight Club Hamburg</title>
+    <meta name="description" content="Über uns - Central Fight Club Hamburg. Seit 2016 für Teamgeist, Gemeinschaft und Respekt. Professionelles Kampfsport-Training in Hamburg.">
+    <meta name="keywords" content="Über uns, Central Fight Club, Hamburg, Kampfsport, Teamgeist, Gemeinschaft, Respekt, seit 2016">
+    <meta name="author" content="Central Fight Club Hamburg">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.centralfightclub.de/ueber-uns/">
+    <meta property="og:title" content="Über uns - Central Fight Club Hamburg">
+    <meta property="og:description" content="Seit 2016 für Teamgeist, Gemeinschaft und Respekt. Professionelles Kampfsport-Training in Hamburg.">
+    <meta property="og:image" content="https://www.centralfightclub.de/s/misc/logo.jpg?t=1749434819">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.centralfightclub.de/ueber-uns/">
+    <meta property="twitter:title" content="Über uns - Central Fight Club Hamburg">
+    <meta property="twitter:description" content="Seit 2016 für Teamgeist, Gemeinschaft und Respekt.">
+    <meta property="twitter:image" content="https://www.centralfightclub.de/s/misc/logo.jpg?t=1749434819">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/modern-style.css">
+    
+    <style>
+/* Remove body padding for full-width video hero */
+body {
+    padding-top: 0 !important;
+}
+
+/* Cookie Banner Styles */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #dc2626;
+  padding: 20px;
+  z-index: 10000;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-banner.show {
+  transform: translateY(0);
+}
+
+.cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+}
+
+.cookie-content p {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.cookie-buttons .btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cookie-buttons .btn-primary {
+  background: #dc2626;
+  color: white;
+}
+
+.cookie-buttons .btn-primary:hover {
+  background: #b91c1c;
+}
+
+.cookie-buttons .btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.cookie-buttons .btn-secondary:hover {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.cookie-link {
+  margin: 0;
+}
+
+.cookie-link a {
+  color: #dc2626;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.cookie-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    padding: 15px;
+  }
+  
+  .cookie-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cookie-buttons .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Video Hero Section */
+.video-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Increased height for desktop */
+    min-height: 500px; /* Increased min-height for desktop */
+    max-height: 800px; /* Increased max-height for desktop */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
+    margin-top: 0 !important; /* Ensure no top margin */
+    padding-top: 0 !important; /* Ensure no top padding */
+}
+
+.video-hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-content {
+    text-align: center;
+    color: white;
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.video-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.video-content p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+    .video-hero {
+        height: 50vh; /* Keep smaller height on mobile */
+        min-height: 400px; /* Keep smaller min-height on mobile */
+        max-height: 500px; /* Keep smaller max-height on mobile */
+    }
+    
+    .video-content {
+        padding: 0 1.5rem;
+        top: 60%; /* Move text down on mobile */
+        transform: translate(-50%, -40%); /* Adjust transform for new position */
+    }
+    
+    .video-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .video-content p {
+        font-size: 1.1rem;
+    }
+}
+
+/* About Content Section */
+.about-content {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23dc2626" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23dc2626" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23dc2626" opacity="0.05"/><circle cx="10" cy="60" r="0.5" fill="%23dc2626" opacity="0.05"/><circle cx="90" cy="40" r="0.5" fill="%23dc2626" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-text {
+    text-align: left;
+}
+
+.about-text h2 {
+    color: #dc2626;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    position: relative;
+    line-height: 1.2;
+}
+
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #dc2626, #ff4444);
+    border-radius: 2px;
+}
+
+.about-text p {
+    color: #e5e5e5;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 0;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(220, 38, 38, 0.4);
+    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #dc2626;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: #cccccc;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.about-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-card {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(255, 68, 68, 0.05) 100%);
+    border: 2px solid rgba(220, 38, 38, 0.3);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.visual-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(220, 38, 38, 0.1), transparent);
+    animation: rotate 10s linear infinite;
+    z-index: 1;
+}
+
+.visual-card::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 15px;
+    z-index: 2;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.visual-content {
+    position: relative;
+    z-index: 3;
+    color: white;
+}
+
+.visual-icon {
+    font-size: 4rem;
+    color: #dc2626;
+    margin-bottom: 20px;
+}
+
+.visual-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #dc2626;
+}
+
+.visual-text {
+    font-size: 1rem;
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.gemeinschaft-section {
+    margin-top: 4rem;
+}
+
+.visual-card.full-width {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    min-height: 200px;
+    padding: 40px;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+.visual-card.full-width .visual-icon {
+    font-size: 3rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.visual-card.full-width .visual-content {
+    flex: 1;
+    text-align: left;
+}
+
+.visual-card.full-width .visual-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.visual-card.full-width .visual-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .about-text {
+        text-align: center;
+    }
+    
+    .about-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .visual-card.full-width {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .visual-card.full-width .visual-content {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        padding: 80px 0;
+    }
+    
+    .about-text h2 {
+        font-size: 2.5rem;
+    }
+    
+    .about-text p {
+        font-size: 1.1rem;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .visual-card {
+        height: 400px;
+        padding: 30px;
+    }
+    
+    .visual-icon {
+        font-size: 3rem;
+    }
+}
+</style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsActivityLocation",
+        "name": "Central Fight Club Hamburg",
+        "description": "Seit 2016 für Teamgeist, Gemeinschaft und Respekt. Professionelles Kampfsport-Training in Hamburg.",
+        "url": "https://www.centralfightclub.de/ueber-uns",
+        "email": "cfchamburg@outlook.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Droopweg 25",
+            "addressLocality": "Hamburg",
+            "postalCode": "20537",
+            "addressCountry": "DE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "53.5511",
+            "longitude": "9.9937"
+        },
+        "openingHours": "Mo-Fr 10:00-22:00, Sa 12:00-15:00, So 13:00-15:00",
+        "priceRange": "€€",
+        "foundingDate": "2016"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html" class="logo">
+                        <img src="img/Navbar-Logo.png" alt="Central Fight Club Hamburg" class="logo-img">
+                    </a>
+                </div>
+                
+                <div class="navbar-menu" id="navbar-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ueber-uns.html" class="nav-link active">Über uns</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trainingsplan.html" class="nav-link">Trainingsplan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trainer.html" class="nav-link">Trainer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="galerie.html" class="nav-link">Galerie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="preise.html" class="nav-link">Preise</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#kontakt" class="nav-link">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="navbar-toggle" id="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Video Hero Section -->
+    <section class="video-hero">
+        <video autoplay muted loop playsinline onerror="this.style.display='none'">
+            <source src="https://cdn.pixabay.com/video/2020/10/11/52101-467180032_large.mp4" type="video/mp4">
+            Ihr Browser unterstützt das Video-Element nicht.
+        </video>
+        <div class="video-overlay">
+            <div class="video-content">
+                <h1>Über uns</h1>
+                <p>Seit 2016 für Teamgeist, Gemeinschaft und Respekt</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="about-content">
+        <div class="about-container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Unsere Geschichte</h2>
+                    <p>Unser Studio besteht seit 2016. Wir stehen für „Wir sind alle gleich", für Teamgeist, Gemeinschaft und Respekt.</p>
+                    <p>Bei uns zählt nicht, woher du kommst, sondern dass du Lust hast, dich weiterzuentwickeln, dich auszupowern und dabei Spaß zu haben.</p>
+                    <p>Das Studio ist ein Ort, an dem sich jede*r willkommen fühlen darf.</p>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2016</div>
+                        <div class="stat-label">Gegründet</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Zufriedene Mitglieder</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Sportarten</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">Tage die Woche</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gemeinschaft-section">
+                <div class="visual-card full-width">
+                    <div class="visual-content">
+                        <div class="visual-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="visual-title">Gemeinschaft</div>
+                        <div class="visual-text">
+                            Bei uns steht die Gemeinschaft im Mittelpunkt. Jeder wird respektiert und wertgeschätzt, unabhängig von Herkunft oder Erfahrung.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="kontakt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kontakt</h2>
+                <p class="section-subtitle">Besuchen Sie uns in Hamburg</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Adresse</h3>
+                            <p>Droopweg 25<br>20537 Hamburg</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-Mail</h3>
+                            <p><a href="mailto:cfchamburg@outlook.com">cfchamburg@outlook.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Öffnungszeiten</h3>
+                            <p>Mo-Fr: 10:00 - 22:00 Uhr<br>Sa: 12:00 - 15:00 Uhr<br>So: 13:00 - 15:00 Uhr</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-social">
+                    <h3>Folgen Sie uns</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100063717544085" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://instagram.com/central_fight_club_hh?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Central Fight Club Hamburg</h3>
+                    <p>Professionelles Kampfsport-Training in Hamburg</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="ueber-uns.html">Über uns</a></li>
+                        <li><a href="trainingsplan.html">Trainingsplan</a></li>
+                        <li><a href="trainer.html">Trainer</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="preise.html">Preise</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Droopweg 25<br>20537 Hamburg</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Central Fight Club Hamburg. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies, um Ihnen die beste Erfahrung auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="btn btn-primary">Akzeptieren</button>
+                <button id="decline-cookies" class="btn btn-secondary">Ablehnen</button>
+            </div>
+            <p class="cookie-link">
+                <a href="datenschutz.html#cookies">Mehr Informationen</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/modern-script.js"></script>
+</body>
+</html>

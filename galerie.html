@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Central Fight Club Hamburg</title>
+    <meta name="description" content="Aktuelle News und Events vom Central Fight Club Hamburg. Kampfsport-Nachrichten, Turniere und Club-Updates.">
+    <meta name="keywords" content="News, Central Fight Club, Hamburg, Kampfsport, Events, Turniere, Nachrichten">
+    <meta name="author" content="Central Fight Club Hamburg">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.centralfightclub.de/news-2/">
+    <meta property="og:title" content="News - Central Fight Club Hamburg">
+    <meta property="og:description" content="Aktuelle News und Events vom Central Fight Club Hamburg. Kampfsport-Nachrichten und Club-Updates.">
+    <meta property="og:image" content="https://www.centralfightclub.de/s/misc/logo.jpg?t=1749434819">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.centralfightclub.de/news-2/">
+    <meta property="twitter:title" content="News - Central Fight Club Hamburg">
+    <meta property="twitter:description" content="Aktuelle News und Events vom Central Fight Club Hamburg.">
+    <meta property="twitter:image" content="https://www.centralfightclub.de/s/misc/logo.jpg?t=1749434819">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicons/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/modern-style.css">
+    
+    <style>
+/* Cookie Banner Styles */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #dc2626;
+  padding: 20px;
+  z-index: 10000;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-banner.show {
+  transform: translateY(0);
+}
+
+.cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+}
+
+.cookie-content p {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.cookie-buttons .btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cookie-buttons .btn-primary {
+  background: #dc2626;
+  color: white;
+}
+
+.cookie-buttons .btn-primary:hover {
+  background: #b91c1c;
+}
+
+.cookie-buttons .btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.cookie-buttons .btn-secondary:hover {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.cookie-link {
+  margin: 0;
+}
+
+.cookie-link a {
+  color: #dc2626;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.cookie-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    padding: 15px;
+  }
+  
+  .cookie-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cookie-buttons .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+</style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsActivityLocation",
+        "name": "Central Fight Club Hamburg",
+        "description": "Professionelles Kampfsport-Training in Hamburg",
+        "url": "https://www.centralfightclub.de/news-2",
+        "email": "cfchamburg@outlook.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Droopweg 25",
+            "addressLocality": "Hamburg",
+            "postalCode": "20537",
+            "addressCountry": "DE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "53.5511",
+            "longitude": "9.9937"
+        },
+        "openingHours": "Mo-Fr 10:00-22:00, Sa 12:00-15:00, So 13:00-15:00",
+        "priceRange": "€€"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html" class="logo">
+                        <img src="img/Navbar-Logo.png" alt="Central Fight Club Hamburg" class="logo-img">
+                    </a>
+                </div>
+                
+                <div class="navbar-menu" id="navbar-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ueber-uns.html" class="nav-link">Über uns</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trainingsplan.html" class="nav-link">Trainingsplan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="trainer.html" class="nav-link">Trainer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="galerie.html" class="nav-link active">Galerie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="preise.html" class="nav-link">Preise</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#kontakt" class="nav-link">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="navbar-toggle" id="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Galerie</h2>
+                <p class="section-subtitle">Einblicke in unser Training und die Central Fight Club Community</p>
+            </div>
+            
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_19288383.JPG" alt="Hamburg Underground Fights Poster" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_19365611.JPG" alt="Fight Victory 1" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_19288386.JPG" alt="Group Photo with Banner" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_19288384.jpg" alt="Fight Victory 3" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_19288385.JPG" alt="Group Selfie" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_18034167.jpeg" alt="Trainer bei der Arbeit" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_18034166.jpeg" alt="Training Session" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_18034168.jpeg" alt="Technik Training 2" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_18034165.jpeg" alt="Sparring Session 2" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_17986572.jpg" alt="Fitness Training 3" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_17986573.jpg" alt="Central Fight Club 2" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_17986574.jpg" alt="Training Session 2" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_17986575.jpg" alt="Trainer bei der Arbeit 2" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_17997373.jpeg" alt="Technik Training 3" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_17997374.jpeg" alt="Sparring Session 3" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_17827066.jpeg" alt="Fitness Training 4" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_17827067.jpeg" alt="Central Fight Club 3" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_17827070.jpeg" alt="Training Session 3" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.centralfightclub.de/s/cc_images/cache_17827071.jpeg" alt="Trainer bei der Arbeit 3" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+
+
+
+    <!-- Contact Section -->
+    <section class="contact section" id="kontakt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kontakt</h2>
+                <p class="section-subtitle">Besuchen Sie uns in Hamburg</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Adresse</h3>
+                            <p>Droopweg 25<br>20537 Hamburg</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-Mail</h3>
+                            <p><a href="mailto:cfchamburg@outlook.com">cfchamburg@outlook.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Öffnungszeiten</h3>
+                            <p>Mo-Fr: 10:00 - 22:00 Uhr<br>Sa: 12:00 - 15:00 Uhr<br>So: 13:00 - 15:00 Uhr</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-social">
+                    <h3>Folgen Sie uns</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100063717544085" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://instagram.com/central_fight_club_hh?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Central Fight Club Hamburg</h3>
+                    <p>Professionelles Kampfsport-Training in Hamburg</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="trainingsplan.html">Trainingsplan</a></li>
+                        <li><a href="trainer.html">Trainer</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="preise.html">Preise</a></li>
+                        <li><a href="ueber-uns.html">Über uns</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Droopweg 25<br>20537 Hamburg</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Central Fight Club Hamburg. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies, um Ihnen die beste Erfahrung auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="btn btn-primary">Akzeptieren</button>
+                <button id="decline-cookies" class="btn btn-secondary">Ablehnen</button>
+            </div>
+            <p class="cookie-link">
+                <a href="datenschutz.html#cookies">Mehr Informationen</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/modern-script.js"></script>
+    
+    <script>
+        // Central function to get ordered images from localStorage
+        function getOrderedImages() {
+            const saved = localStorage.getItem('galleryImages');
+            let images = saved ? JSON.parse(saved) : [];
+            
+            // If no saved images, load default images
+            if (images.length === 0) {
+                images = [
+                    {
+                        name: "Fight Victory 1",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_19365611.JPG",
+                        order: 1
+                    },
+                    {
+                        name: "Fight Victory 2", 
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_19365612.JPG",
+                        order: 2
+                    },
+                    {
+                        name: "Hamburg Underground Fights Poster",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_19288383.JPG",
+                        order: 3
+                    },
+                    {
+                        name: "Fight Victory 3",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_19288384.jpg",
+                        order: 4
+                    },
+                    {
+                        name: "Group Selfie",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_19288385.JPG",
+                        order: 5
+                    },
+                    {
+                        name: "Group Photo with Banner",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_19288386.JPG",
+                        order: 6
+                    },
+                    {
+                        name: "Training Session",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_18034166.jpeg",
+                        order: 7
+                    },
+                    {
+                        name: "Trainer bei der Arbeit",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_18034167.jpeg",
+                        order: 8
+                    },
+                    {
+                        name: "Technik Training 2",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_18034168.jpeg",
+                        order: 9
+                    },
+                    {
+                        name: "Sparring Session 2",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_18034165.jpeg",
+                        order: 10
+                    },
+                    {
+                        name: "Fitness Training 3",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_17986572.jpg",
+                        order: 11
+                    },
+                    {
+                        name: "Central Fight Club 2",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_17986573.jpg",
+                        order: 12
+                    },
+                    {
+                        name: "Training Session 2",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_17986574.jpg",
+                        order: 13
+                    },
+                    {
+                        name: "Trainer bei der Arbeit 2",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_17986575.jpg",
+                        order: 14
+                    },
+                    {
+                        name: "Technik Training 3",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_17997373.jpeg",
+                        order: 15
+                    },
+                    {
+                        name: "Sparring Session 3",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_17997374.jpeg",
+                        order: 16
+                    },
+                    {
+                        name: "Fitness Training 4",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_17827066.jpeg",
+                        order: 17
+                    },
+                    {
+                        name: "Central Fight Club 3",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_17827067.jpeg",
+                        order: 18
+                    },
+                    {
+                        name: "Training Session 3",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_17827070.jpeg",
+                        order: 19
+                    },
+                    {
+                        name: "Trainer bei der Arbeit 3",
+                        url: "https://www.centralfightclub.de/s/cc_images/cache_17827071.jpeg",
+                        order: 20
+                    }
+                ];
+                // Save default images to localStorage for consistency with admin
+                localStorage.setItem('galleryImages', JSON.stringify(images));
+            }
+            
+            // Filter out invalid images and sort by order
+            const validImages = images.filter(item => 
+                item && 
+                (item.url || item.image) && 
+                (item.url || item.image).trim() !== '' && 
+                (item.name || item.title) && 
+                (item.name || item.title).trim() !== ''
+            );
+            
+            // Sort by order (ascending) - same as admin
+            validImages.sort((a, b) => {
+                return (a.order || 0) - (b.order || 0);
+            });
+            
+            return validImages;
+        }
+
+        // Load dynamic gallery from admin
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDynamicGallery();
+        });
+        
+        // Listen for gallery updates from admin
+        window.addEventListener('galleryUpdated', function() {
+            loadDynamicGallery();
+        });
+        
+        function loadDynamicGallery() {
+            const images = getOrderedImages();
+            displayDynamicGallery(images);
+        }
+        
+        function displayDynamicGallery(images) {
+            const galleryGrid = document.getElementById('galleryGrid') || document.querySelector('.gallery-grid');
+            if (!galleryGrid) return;
+            
+            if (images.length === 0) {
+                galleryGrid.innerHTML = '<p style="text-align: center; color: #cccccc; grid-column: 1 / -1;">Galerie wird bald gefüllt.</p>';
+                return;
+            }
+            
+            // Display all images (images are already ordered by getOrderedImages)
+            galleryGrid.innerHTML = images.map((image, index) => `
+                <div class="gallery-item" data-index="${index}">
+                    <img src="${image.url || image.image}" alt="${image.name || image.title || 'Training'}" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+            `).join('');
+            
+            // Add click events to gallery items for lightbox
+            const galleryItems = galleryGrid.querySelectorAll('.gallery-item');
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    const img = this.querySelector('img');
+                    if (!img) return;
+                    openLightbox(img.src, img.alt, index);
+                });
+            });
+        }
+        
+        function displayDefaultGallery() {
+            const galleryGrid = document.getElementById('galleryGrid') || document.querySelector('.gallery-grid');
+            if (!galleryGrid) return;
+            
+            // Keep existing gallery if no admin images
+            console.log('Using default gallery images');
+        }
+        
+        // Lightbox functionality
+        let currentImageIndex = 0;
+        let galleryImages = [];
+        
+        function openLightbox(src, alt, clickedIndex = 0) {
+            // Get all gallery images from localStorage first, then fallback to DOM elements
+            const savedImages = localStorage.getItem('galleryImages');
+            if (savedImages) {
+                const allImages = JSON.parse(savedImages);
+                const validImages = allImages.filter(item => 
+                    item && 
+                    (item.url || item.image) && 
+                    (item.url || item.image).trim() !== '' && 
+                    (item.name || item.title) && 
+                    (item.name || item.title).trim() !== ''
+                );
+                
+                // Sort by order
+                validImages.sort((a, b) => {
+                    return (a.order || 0) - (b.order || 0);
+                });
+                
+                galleryImages = validImages.map(img => ({
+                    src: img.url || img.image,
+                    alt: img.name || img.title || 'Training'
+                }));
+            } else {
+                // Fallback to DOM elements
+                const galleryItems = document.querySelectorAll('.gallery-item img');
+                galleryImages = Array.from(galleryItems).map(img => ({
+                    src: img.src,
+                    alt: img.alt
+                }));
+            }
+            
+            currentImageIndex = clickedIndex;
+            
+            const lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            lightbox.innerHTML = `
+                <div class="lightbox-content">
+                    <button class="lightbox-nav lightbox-prev">&lt;</button>
+                    <img src="${src}" alt="${alt}">
+                    <button class="lightbox-nav lightbox-next">&gt;</button>
+                    <button class="lightbox-close">&times;</button>
+                    <div class="lightbox-counter">${currentImageIndex + 1} / ${galleryImages.length}</div>
+                </div>
+            `;
+            
+            // Add lightbox styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .lightbox {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+                .lightbox.active {
+                    opacity: 1;
+                }
+                .lightbox-content {
+                    position: relative;
+                    max-width: 90%;
+                    max-height: 90%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .lightbox-content img {
+                    max-width: 100%;
+                    max-height: 90vh;
+                    border-radius: 8px;
+                    transition: opacity 0.3s ease;
+                }
+                .lightbox-nav {
+                    position: fixed;
+                    bottom: 20px;
+                    background: rgba(0, 0, 0, 0.8);
+                    border: none;
+                    color: white;
+                    font-size: 1.8rem;
+                    cursor: pointer;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    transition: all 0.3s ease;
+                    z-index: 10001;
+                    backdrop-filter: blur(5px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                }
+                .lightbox-nav:hover {
+                    background: rgba(220, 38, 38, 0.9);
+                    transform: scale(1.05);
+                }
+                .lightbox-prev {
+                    left: calc(50% - 60px);
+                }
+                .lightbox-next {
+                    right: calc(50% - 60px);
+                }
+                .lightbox-close {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: rgba(0, 0, 0, 0.8);
+                    border: none;
+                    color: white;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    padding: 10px 15px;
+                    border-radius: 8px;
+                    transition: all 0.3s ease;
+                    z-index: 10001;
+                    backdrop-filter: blur(5px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                }
+                .lightbox-close:hover {
+                    background: rgba(220, 38, 38, 0.9);
+                    transform: scale(1.1);
+                }
+                .lightbox-counter {
+                    position: fixed;
+                    bottom: 80px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    font-size: 0.9rem;
+                    backdrop-filter: blur(5px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                }
+                @media (max-width: 768px) {
+                    .lightbox-nav {
+                        font-size: 1.4rem;
+                        padding: 12px 16px;
+                        bottom: 15px;
+                    }
+                    .lightbox-prev {
+                        left: calc(50% - 50px);
+                    }
+                    .lightbox-next {
+                        right: calc(50% - 50px);
+                    }
+                    .lightbox-close {
+                        top: 10px;
+                        right: 10px;
+                        font-size: 1.6rem;
+                        padding: 8px 12px;
+                    }
+                    .lightbox-counter {
+                        bottom: 70px;
+                        font-size: 0.8rem;
+                        padding: 6px 12px;
+                    }
+                }
+            `;
+            
+            document.head.appendChild(style);
+            document.body.appendChild(lightbox);
+            
+            // Show lightbox with animation
+            setTimeout(() => lightbox.classList.add('active'), 10);
+            
+            // Navigation functionality
+            const prevBtn = lightbox.querySelector('.lightbox-prev');
+            const nextBtn = lightbox.querySelector('.lightbox-next');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+            const img = lightbox.querySelector('img');
+            const counter = lightbox.querySelector('.lightbox-counter');
+            
+            function updateImage() {
+                if (galleryImages.length > 0) {
+                    img.src = galleryImages[currentImageIndex].src;
+                    img.alt = galleryImages[currentImageIndex].alt;
+                    counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+                }
+            }
+            
+            prevBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (galleryImages.length > 0) {
+                    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                    updateImage();
+                }
+            });
+            
+            nextBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (galleryImages.length > 0) {
+                    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                    updateImage();
+                }
+            });
+            
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeLightbox();
+            });
+            
+            // Close on background click
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (lightbox.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                    } else if (e.key === 'ArrowLeft') {
+                        prevBtn.click();
+                    } else if (e.key === 'ArrowRight') {
+                        nextBtn.click();
+                    }
+                }
+            });
+            
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                setTimeout(() => {
+                    if (document.body.contains(lightbox)) {
+                        document.body.removeChild(lightbox);
+                    }
+                    if (document.head.contains(style)) {
+                        document.head.removeChild(style);
+                    }
+                }, 300);
+            }
+        }
+        
+        // Load gallery on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDynamicGallery();
+        });
+        
+        // Listen for gallery updates from admin
+        window.addEventListener('galleryUpdated', function() {
+            loadDynamicGallery();
+        });
+    </script>
+</body>
+</html> 
