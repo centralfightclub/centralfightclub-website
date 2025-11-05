@@ -1,0 +1,36 @@
+{
+  "monday": [
+    {"time": "10:00 Uhr", "name": "Thai-Kickboxen"},
+    {"time": "17:00 Uhr", "name": "Junior Thai-Kickboxen"},
+    {"time": "18:00 Uhr", "name": "Thai-Kickboxen"},
+    {"time": "19:00 Uhr", "name": "MMA"}
+  ],
+  "tuesday": [
+    {"time": "10:00 Uhr", "name": "Thai-Kickboxen"},
+    {"time": "17:00 Uhr", "name": "Junior Thai-Kickboxen"},
+    {"time": "18:00 Uhr", "name": "Lady Kickboxen"}
+  ],
+  "wednesday": [
+    {"time": "10:00 Uhr", "name": "Thai-Kickboxen"},
+    {"time": "17:00 Uhr", "name": "Junior Thai-Kickboxen"},
+    {"time": "18:00 Uhr", "name": "Thai-Kickboxen"},
+    {"time": "19:00 Uhr", "name": "MMA"}
+  ],
+  "thursday": [
+    {"time": "17:00 Uhr", "name": "Little Ninjas"},
+    {"time": "18:00 Uhr", "name": "Lady Kickboxen"}
+  ],
+  "friday": [
+    {"time": "10:00 Uhr", "name": "Thai Kickboxen"},
+    {"time": "17:00 Uhr", "name": "Junior Thai Kickboxen"},
+    {"time": "18:00 Uhr", "name": "Thai Kickboxen"},
+    {"time": "19:00 Uhr", "name": "MMA"}
+  ],
+  "saturday": [
+    {"time": "12:00–13:30 Uhr", "name": "Sparring"}
+  ],
+  "sunday": [
+    {"time": "13:00–15:00 Uhr", "name": "Freies Training"}
+  ]
+}
+
