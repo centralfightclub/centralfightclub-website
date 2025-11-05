@@ -1,1 +1,5 @@
+# Exclude admin files from redirect
+/admin/*    /admin/:splat   200
+
+# Redirect everything else to index.html
 /*    /index.html   200 
