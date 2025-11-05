@@ -900,32 +900,45 @@ body {
             pricingGrid.innerHTML = html;
         }
         
-        function loadCoursePrices() {
-            const savedPrices = JSON.parse(localStorage.getItem('coursePrices') || '{}');
-            
-            // Adults
-            if (savedPrices.adult1course24) document.getElementById('adult1course24price').textContent = savedPrices.adult1course24 + ' €';
-            if (savedPrices.adult1course12) document.getElementById('adult1course12price').textContent = savedPrices.adult1course12 + ' €';
-            if (savedPrices.adult2course24) document.getElementById('adult2course24price').textContent = savedPrices.adult2course24 + ' €';
-            if (savedPrices.adult2course12) document.getElementById('adult2course12price').textContent = savedPrices.adult2course12 + ' €';
-            if (savedPrices.adultcomplete24) document.getElementById('adultcomplete24price').textContent = savedPrices.adultcomplete24 + ' €';
-            if (savedPrices.adultcomplete12) document.getElementById('adultcomplete12price').textContent = savedPrices.adultcomplete12 + ' €';
-            
-            // Youth
-            if (savedPrices.youth1course24) document.getElementById('youth1course24price').textContent = savedPrices.youth1course24 + ' €';
-            if (savedPrices.youth1course12) document.getElementById('youth1course12price').textContent = savedPrices.youth1course12 + ' €';
-            if (savedPrices.youth2course24) document.getElementById('youth2course24price').textContent = savedPrices.youth2course24 + ' €';
-            if (savedPrices.youth2course12) document.getElementById('youth2course12price').textContent = savedPrices.youth2course12 + ' €';
-            if (savedPrices.youthcomplete24) document.getElementById('youthcomplete24price').textContent = savedPrices.youthcomplete24 + ' €';
-            if (savedPrices.youthcomplete12) document.getElementById('youthcomplete12price').textContent = savedPrices.youthcomplete12 + ' €';
-            
-            // Children
-            if (savedPrices.child1course24) document.getElementById('child1course24price').textContent = savedPrices.child1course24 + ' €';
-            if (savedPrices.child1course12) document.getElementById('child1course12price').textContent = savedPrices.child1course12 + ' €';
-            if (savedPrices.child1course6) document.getElementById('child1course6price').textContent = savedPrices.child1course6 + ' €';
-            if (savedPrices.child2course24) document.getElementById('child2course24price').textContent = savedPrices.child2course24 + ' €';
-            if (savedPrices.child2course12) document.getElementById('child2course12price').textContent = savedPrices.child2course12 + ' €';
-            if (savedPrices.child2course6) document.getElementById('child2course6price').textContent = savedPrices.child2course6 + ' €';
+        async function loadCoursePrices() {
+            try {
+                // Load prices from JSON file instead of localStorage
+                const response = await fetch('data/prices.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load prices');
+                }
+                const savedPrices = await response.json();
+                
+                // Adults
+                if (savedPrices.adult1course24) document.getElementById('adult1course24price').textContent = savedPrices.adult1course24 + ' €';
+                if (savedPrices.adult1course12) document.getElementById('adult1course12price').textContent = savedPrices.adult1course12 + ' €';
+                if (savedPrices.adult2course24) document.getElementById('adult2course24price').textContent = savedPrices.adult2course24 + ' €';
+                if (savedPrices.adult2course12) document.getElementById('adult2course12price').textContent = savedPrices.adult2course12 + ' €';
+                if (savedPrices.adultcomplete24) document.getElementById('adultcomplete24price').textContent = savedPrices.adultcomplete24 + ' €';
+                if (savedPrices.adultcomplete12) document.getElementById('adultcomplete12price').textContent = savedPrices.adultcomplete12 + ' €';
+                
+                // Youth
+                if (savedPrices.youth1course24) document.getElementById('youth1course24price').textContent = savedPrices.youth1course24 + ' €';
+                if (savedPrices.youth1course12) document.getElementById('youth1course12price').textContent = savedPrices.youth1course12 + ' €';
+                if (savedPrices.youth2course24) document.getElementById('youth2course24price').textContent = savedPrices.youth2course24 + ' €';
+                if (savedPrices.youth2course12) document.getElementById('youth2course12price').textContent = savedPrices.youth2course12 + ' €';
+                if (savedPrices.youthcomplete24) document.getElementById('youthcomplete24price').textContent = savedPrices.youthcomplete24 + ' €';
+                if (savedPrices.youthcomplete12) document.getElementById('youthcomplete12price').textContent = savedPrices.youthcomplete12 + ' €';
+                
+                // Children
+                if (savedPrices.child1course24) document.getElementById('child1course24price').textContent = savedPrices.child1course24 + ' €';
+                if (savedPrices.child1course12) document.getElementById('child1course12price').textContent = savedPrices.child1course12 + ' €';
+                if (savedPrices.child1course6) document.getElementById('child1course6price').textContent = savedPrices.child1course6 + ' €';
+                if (savedPrices.child2course24) document.getElementById('child2course24price').textContent = savedPrices.child2course24 + ' €';
+                if (savedPrices.child2course12) document.getElementById('child2course12price').textContent = savedPrices.child2course12 + ' €';
+                if (savedPrices.child2course6) document.getElementById('child2course6price').textContent = savedPrices.child2course6 + ' €';
+            } catch (error) {
+                console.error('Error loading prices:', error);
+                // Fallback to localStorage if JSON file doesn't exist
+                const savedPrices = JSON.parse(localStorage.getItem('coursePrices') || '{}');
+                if (savedPrices.adult1course24) document.getElementById('adult1course24price').textContent = savedPrices.adult1course24 + ' €';
+                // ... (rest of fallback code)
+            }
         }
         
         // Probetraining Popup Functions

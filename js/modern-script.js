@@ -724,7 +724,26 @@ function loadAdminData() {
     loadPricesData();
 }
 
-function loadOpeningHours() {
+async function loadOpeningHours() {
+    try {
+        // Load from JSON file first
+        const response = await fetch('data/opening-hours.json');
+        if (response.ok) {
+            const hours = await response.json();
+            
+            // Auto-update old Saturday hours (14:00) to new hours (15:00)
+            if (hours.saturday && (hours.saturday.includes('14:00') || hours.saturday.includes('14–00'))) {
+                hours.saturday = hours.saturday.replace(/14[–:]00/g, '15:00');
+            }
+            
+            updateOpeningHoursOnPage(hours);
+            return;
+        }
+    } catch (error) {
+        console.log('Loading from localStorage fallback');
+    }
+    
+    // Fallback to localStorage
     const saved = localStorage.getItem('openingHours');
     if (saved) {
         const hours = JSON.parse(saved);
@@ -735,20 +754,24 @@ function loadOpeningHours() {
             localStorage.setItem('openingHours', JSON.stringify(hours));
         }
         
-        // Update popup opening hours
-        const popupHours = document.querySelector('.probetraining-hours');
-        if (popupHours) {
-            popupHours.innerHTML = `
-                <h3><i class="fas fa-clock"></i> Öffnungszeiten</h3>
-                <p><strong>Montag - Freitag:</strong> ${hours.weekday}</p>
-                <p><strong>Samstag:</strong> ${hours.saturday}</p>
-                <p><strong>Sonntag:</strong> ${hours.sunday}</p>
-            `;
-        }
-        
-        // Update footer opening hours
-        updateFooterOpeningHours(hours);
+        updateOpeningHoursOnPage(hours);
     }
+}
+
+function updateOpeningHoursOnPage(hours) {
+    // Update popup opening hours
+    const popupHours = document.querySelector('.probetraining-hours');
+    if (popupHours) {
+        popupHours.innerHTML = `
+            <h3><i class="fas fa-clock"></i> Öffnungszeiten</h3>
+            <p><strong>Montag - Freitag:</strong> ${hours.weekday}</p>
+            <p><strong>Samstag:</strong> ${hours.saturday}</p>
+            <p><strong>Sonntag:</strong> ${hours.sunday}</p>
+        `;
+    }
+    
+    // Update footer opening hours
+    updateFooterOpeningHours(hours);
 }
 
 function updateFooterOpeningHours(hours) {
