@@ -10,6 +10,7 @@ collections:
   - name: "gallery"
     label: "Galerie"
     folder: "data/gallery"
+    format: "json"
     create: true
     slug: "{{slug}}"
     fields:
