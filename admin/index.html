@@ -1,222 +1,24 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Central Fight Club Hamburg</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #1a1a1a;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 20px;
-            background: rgba(220, 38, 38, 0.1);
-            border-radius: 15px;
-            border: 1px solid #dc2626;
-        }
-        
-        .header h1 {
-            color: #dc2626;
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            color: #cccccc;
-            font-size: 16px;
-        }
-        
-        .instructions {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(220, 38, 38, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .instructions h2 {
-            color: #dc2626;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        
-        .instructions ol {
-            color: #cccccc;
-            font-size: 16px;
-            line-height: 1.8;
-            padding-left: 20px;
-        }
-        
-        .instructions li {
-            margin-bottom: 10px;
-        }
-        
-        .instructions strong {
-            color: #ffffff;
-        }
-        
-        .cms-button {
-            display: inline-block;
-            background: #dc2626;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin: 20px 0;
-        }
-        
-        .cms-button:hover {
-            background: #b91c1c;
-            transform: translateY(-2px);
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(220, 38, 38, 0.3);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .feature-card h3 {
-            color: #dc2626;
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .feature-card p {
-            color: #cccccc;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        .feature-icon {
-            font-size: 48px;
-            color: #dc2626;
-            margin-bottom: 20px;
-        }
-        
-        .back-link {
-            display: inline-block;
-            color: #dc2626;
-            text-decoration: none;
-            font-size: 16px;
-            margin-bottom: 20px;
-            transition: color 0.3s ease;
-        }
-        
-        .back-link:hover {
-            color: #b91c1c;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .header h1 {
-                font-size: 24px;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-    <div class="container">
-        <a href="../index.html" class="back-link">← Zurück zur Website</a>
-        
-        <div class="header">
-            <h1>Central Fight Club Admin</h1>
-            <p>Verwalten Sie Bilder und Preise Ihrer Website</p>
-        </div>
-        
-        <div class="instructions">
-            <h2>🚀 So starten Sie:</h2>
-            <ol>
-                <li><strong>Klicken Sie auf "CMS öffnen"</strong> unten</li>
-                <li><strong>Melden Sie sich an</strong> mit Ihrem GitHub-Account</li>
-                <li><strong>Verwalten Sie Inhalte:</strong>
-                    <ul style="margin-top: 10px; padding-left: 20px;">
-                        <li>📸 <strong>Galerie:</strong> Bilder hochladen, löschen, sortieren</li>
-                        <li>💰 <strong>Preise:</strong> Preise hinzufügen, bearbeiten, löschen</li>
-                        <li>📄 <strong>Seiten:</strong> Texte auf der Website bearbeiten</li>
-                    </ul>
-                </li>
-                <li><strong>Änderungen werden automatisch</strong> auf Ihrer Website angezeigt</li>
-            </ol>
-        </div>
-        
-        <div style="text-align: center;">
-            <a href="/admin/#/" class="cms-button">
-                🎯 CMS öffnen - Inhalte verwalten
-            </a>
-        </div>
-        
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">📸</div>
-                <h3>Galerie verwalten</h3>
-                <p>Laden Sie neue Bilder hoch, löschen Sie alte Bilder und sortieren Sie die Reihenfolge. Alle Änderungen erscheinen sofort auf Ihrer Website.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3>Preise aktualisieren</h3>
-                <p>Bearbeiten Sie Preise, fügen Sie neue Angebote hinzu oder entfernen Sie alte. Die Preistabelle wird automatisch aktualisiert.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📄</div>
-                <h3>Texte bearbeiten</h3>
-                <p>Ändern Sie Texte auf der Startseite, aktualisieren Sie Beschreibungen und verwalten Sie alle Inhalte Ihrer Website.</p>
-            </div>
-        </div>
-        
-        <div class="instructions" style="margin-top: 40px;">
-            <h2>💡 Tipps für die Nutzung:</h2>
-            <ol>
-                <li><strong>Bilder:</strong> Verwenden Sie JPG oder PNG, max. 5MB pro Bild</li>
-                <li><strong>Preise:</strong> Geben Sie Preise in Euro ein (z.B. 50.00)</li>
-                <li><strong>Reihenfolge:</strong> Niedrigere Zahlen erscheinen zuerst</li>
-                <li><strong>Speichern:</strong> Vergessen Sie nicht, Ihre Änderungen zu speichern</li>
-            </ol>
-        </div>
-    </div>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
-
