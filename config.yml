@@ -15,7 +15,8 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "Name", name: "name", widget: "string"}
-      - {label: "Bild URL", name: "url", widget: "string"}
+      - {label: "Bild", name: "image", widget: "image", required: false}
+      - {label: "Bild URL (falls extern)", name: "url", widget: "string", required: false, hint: "Falls Bild bereits online ist, URL hier eingeben. Sonst Bild oben hochladen."}
       - {label: "Reihenfolge", name: "order", widget: "number", value_type: "int", default: 0}
 
   # Opening Hours
