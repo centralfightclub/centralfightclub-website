@@ -2,12 +2,8 @@
   publish = "."
   command = ""
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-# Exclude admin files from redirect
+# Admin redirects are handled in _redirects file (higher priority)
+# Only exclude admin from general redirect here
 [[redirects]]
   from = "/admin/*"
   to = "/admin/:splat"
