@@ -32,16 +32,32 @@ collections:
   # Course Prices
   - name: "prices"
     label: "Kurs-Preise"
-    folder: "data/prices"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Preis (€)", name: "price", widget: "number", value_type: "float"}
-      - {label: "Beschreibung", name: "description", widget: "text", required: false}
-      - {label: "Kategorie", name: "category", widget: "select", options: ["Erwachsene", "Jugendliche", "Kinder"]}
-      - {label: "Laufzeit", name: "duration", widget: "select", options: ["12 Monate", "24 Monate", "6 Monate"], required: false}
-      - {label: "Reihenfolge", name: "order", widget: "number", value_type: "int", default: 0}
+    files:
+      - label: "Kurs-Preise"
+        name: "prices"
+        file: "data/prices.json"
+        fields:
+          # Erwachsene
+          - {label: "Erwachsene - 1 Kurs (24 Monate)", name: "adult1course24", widget: "number", value_type: "int", default: 50}
+          - {label: "Erwachsene - 1 Kurs (12 Monate)", name: "adult1course12", widget: "number", value_type: "int", default: 60}
+          - {label: "Erwachsene - 2 Kurse (24 Monate)", name: "adult2course24", widget: "number", value_type: "int", default: 60}
+          - {label: "Erwachsene - 2 Kurse (12 Monate)", name: "adult2course12", widget: "number", value_type: "int", default: 70}
+          - {label: "Erwachsene - Komplettpaket (24 Monate)", name: "adultcomplete24", widget: "number", value_type: "int", default: 65}
+          - {label: "Erwachsene - Komplettpaket (12 Monate)", name: "adultcomplete12", widget: "number", value_type: "int", default: 80}
+          # Jugendliche
+          - {label: "Jugendliche - 1 Kurs (24 Monate)", name: "youth1course24", widget: "number", value_type: "int", default: 40}
+          - {label: "Jugendliche - 1 Kurs (12 Monate)", name: "youth1course12", widget: "number", value_type: "int", default: 45}
+          - {label: "Jugendliche - 2 Kurse (24 Monate)", name: "youth2course24", widget: "number", value_type: "int", default: 50}
+          - {label: "Jugendliche - 2 Kurse (12 Monate)", name: "youth2course12", widget: "number", value_type: "int", default: 55}
+          - {label: "Jugendliche - Komplettpaket (24 Monate)", name: "youthcomplete24", widget: "number", value_type: "int", default: 60}
+          - {label: "Jugendliche - Komplettpaket (12 Monate)", name: "youthcomplete12", widget: "number", value_type: "int", default: 65}
+          # Kinder
+          - {label: "Kinder - 1 Kurs (24 Monate)", name: "child1course24", widget: "number", value_type: "int", default: 30}
+          - {label: "Kinder - 1 Kurs (12 Monate)", name: "child1course12", widget: "number", value_type: "int", default: 35}
+          - {label: "Kinder - 1 Kurs (6 Monate)", name: "child1course6", widget: "number", value_type: "int", default: 40}
+          - {label: "Kinder - 2 Kurse (24 Monate)", name: "child2course24", widget: "number", value_type: "int", default: 40}
+          - {label: "Kinder - 2 Kurse (12 Monate)", name: "child2course12", widget: "number", value_type: "int", default: 45}
+          - {label: "Kinder - 2 Kurse (6 Monate)", name: "child2course6", widget: "number", value_type: "int", default: 50}
 
   # Training Schedule
   - name: "training_schedule"
