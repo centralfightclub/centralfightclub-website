@@ -1,0 +1,97 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  # Gallery Images
+  - name: "gallery"
+    label: "Galerie"
+    folder: "data/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Bild URL", name: "url", widget: "string"}
+      - {label: "Reihenfolge", name: "order", widget: "number", value_type: "int", default: 0}
+
+  # Opening Hours
+  - name: "opening_hours"
+    label: "Öffnungszeiten"
+    files:
+      - label: "Öffnungszeiten"
+        name: "opening_hours"
+        file: "data/opening-hours.json"
+        fields:
+          - {label: "Montag - Freitag", name: "weekday", widget: "string", default: "10:00–22:00 Uhr"}
+          - {label: "Samstag", name: "saturday", widget: "string", default: "12:00–15:00 Uhr"}
+          - {label: "Sonntag", name: "sunday", widget: "string", default: "13:00–15:00 Uhr"}
+
+  # Course Prices
+  - name: "prices"
+    label: "Kurs-Preise"
+    folder: "data/prices"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Preis (€)", name: "price", widget: "number", value_type: "float"}
+      - {label: "Beschreibung", name: "description", widget: "text", required: false}
+      - {label: "Kategorie", name: "category", widget: "select", options: ["Erwachsene", "Jugendliche", "Kinder"]}
+      - {label: "Laufzeit", name: "duration", widget: "select", options: ["12 Monate", "24 Monate", "6 Monate"], required: false}
+      - {label: "Reihenfolge", name: "order", widget: "number", value_type: "int", default: 0}
+
+  # Training Schedule
+  - name: "training_schedule"
+    label: "Trainingsplan"
+    files:
+      - label: "Trainingsplan"
+        name: "training_schedule"
+        file: "data/training-schedule.json"
+        fields:
+          - {label: "Montag Kurse", name: "monday", widget: "list", fields: [{label: "Zeit", name: "time", widget: "string"}, {label: "Kurs Name", name: "name", widget: "string"}]}
+          - {label: "Dienstag Kurse", name: "tuesday", widget: "list", fields: [{label: "Zeit", name: "time", widget: "string"}, {label: "Kurs Name", name: "name", widget: "string"}]}
+          - {label: "Mittwoch Kurse", name: "wednesday", widget: "list", fields: [{label: "Zeit", name: "time", widget: "string"}, {label: "Kurs Name", name: "name", widget: "string"}]}
+          - {label: "Donnerstag Kurse", name: "thursday", widget: "list", fields: [{label: "Zeit", name: "time", widget: "string"}, {label: "Kurs Name", name: "name", widget: "string"}]}
+          - {label: "Freitag Kurse", name: "friday", widget: "list", fields: [{label: "Zeit", name: "time", widget: "string"}, {label: "Kurs Name", name: "name", widget: "string"}]}
+          - {label: "Samstag Kurse", name: "saturday", widget: "list", fields: [{label: "Zeit", name: "time", widget: "string"}, {label: "Kurs Name", name: "name", widget: "string"}]}
+          - {label: "Sonntag Kurse", name: "sunday", widget: "list", fields: [{label: "Zeit", name: "time", widget: "string"}, {label: "Kurs Name", name: "name", widget: "string"}]}
+
+  # Sports Content
+  - name: "sports_content"
+    label: "Sportarten"
+    files:
+      - label: "Sportarten Inhalte"
+        name: "sports_content"
+        file: "data/sports-content.json"
+        fields:
+          - {label: "Muay Thai Titel", name: "muay-thai-title", widget: "string"}
+          - {label: "Muay Thai Beschreibung", name: "muay-thai-desc", widget: "text"}
+          - {label: "Muay Thai Popup Text", name: "muay-thai-popup", widget: "text"}
+          - {label: "MMA Titel", name: "mma-title", widget: "string"}
+          - {label: "MMA Beschreibung", name: "mma-desc", widget: "text"}
+          - {label: "MMA Popup Text", name: "mma-popup", widget: "text"}
+          - {label: "BJJ Titel", name: "bjj-title", widget: "string"}
+          - {label: "BJJ Beschreibung", name: "bjj-desc", widget: "text"}
+          - {label: "BJJ Popup Text", name: "bjj-popup", widget: "text"}
+          - {label: "Lady Kickboxen Titel", name: "lady-title", widget: "string"}
+          - {label: "Lady Kickboxen Beschreibung", name: "lady-desc", widget: "text"}
+          - {label: "Lady Kickboxen Popup Text", name: "lady-popup", widget: "text"}
+          - {label: "Kinder & Jugend Titel", name: "kinder-title", widget: "string"}
+          - {label: "Kinder & Jugend Beschreibung", name: "kinder-desc", widget: "text"}
+          - {label: "Kinder & Jugend Popup Text", name: "kinder-popup", widget: "text"}
+
+  # Homepage Popup
+  - name: "homepage_popup"
+    label: "Homepage Popup"
+    files:
+      - label: "Homepage Popup"
+        name: "homepage_popup"
+        file: "data/homepage-popup.json"
+        fields:
+          - {label: "Popup aktivieren", name: "enabled", widget: "boolean", default: false}
+          - {label: "Titel", name: "title", widget: "string"}
+          - {label: "Beschreibung", name: "description", widget: "text"}
+          - {label: "Bild URL", name: "image", widget: "string"}

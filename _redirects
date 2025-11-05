@@ -1,6 +1,7 @@
-# Exclude admin files from redirect - must come first
-/admin/config.yml    /admin/config.yml   200
+# Exclude admin files and config from redirect - must come first
 /admin/index.html    /admin/index.html   200
+/config.yml          /config.yml         200
+/admin/config.yml    /config.yml         200
 
 # Redirect everything else to index.html
 /*    /index.html   200 
